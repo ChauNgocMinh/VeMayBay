@@ -1,0 +1,9 @@
+﻿@using BANVEMAYBAY.Models
+
+@if (BANVEMAYBAY.Message.has_flash())
+{
+   MessageModel ms = BANVEMAYBAY.Message.get_flash();
+    <div class="float-left ">
+        <p class=" text-@ms.msg_css "><span class="font-weight-bold"> Notify:</span> @ms.msg</p>
+    </div>
+}
