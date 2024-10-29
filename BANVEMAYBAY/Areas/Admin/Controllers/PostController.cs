@@ -7,16 +7,15 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using BANVEMAYBAY.Models;
-using BANVEMAYBAY.Common;
-//using BANVEMAYBAY.Common;
-using BANVEMAYBAY.Models;
+using BanVeMayBay.Models;
+using BanVeMayBay.Common;
+using BanVeMayBay.Models;
 
-namespace BANVEMAYBAY.Areas.Admin.Controllers
+namespace BanVeMayBay.Areas.Admin.Controllers
 {
     public class PostController : BaseController
     {
-       private BANVEMAYBAYEntities db = new BANVEMAYBAYEntities();
+       private BanVeMayBayEntities db = new BanVeMayBayEntities();
 
         // GET: Admin/Post
         public ActionResult Index()

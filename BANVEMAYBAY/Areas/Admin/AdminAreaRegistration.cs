@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace BANVEMAYBAY.Areas.Admin
+namespace BanVeMayBay.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration 
     {

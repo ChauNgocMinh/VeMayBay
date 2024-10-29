@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BANVEMAYBAY.Models.city>
+﻿@model IEnumerable<BanVeMayBay.Models.airport>
 
 @{
     ViewBag.Title = "Index";
@@ -53,14 +53,14 @@
                             <tr>
                         <td style="font-size:14px;">@item.country.countryName</td>
 
-                        <td style="font-size:14px;">@item.cityName</td>
+                        <td style="font-size:14px;">@item.airportName</td>
                         <td>
-                            <a class="btn btn-sm btn-light text-dark border" href="@Url.Action("Retrash", "Airport", new { id = item.cityId })"> <i class="fas fa-undo"></i></a>
-                            <a class="btn btn-sm btn-light text-danger border" href="@Url.Action("deleteTrash", "Airport", new { id = item.cityId })">
+                            <a class="btn btn-sm btn-light text-dark border" href="@Url.Action("Retrash", "Airport", new { id = item.airportId })"> <i class="fas fa-undo"></i></a>
+                            <a class="btn btn-sm btn-light text-danger border" href="@Url.Action("deleteTrash", "Airport", new { id = item.airportId })">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </td>
-                        <td class="text-cam">@Html.DisplayFor(modelItem => item.cityId)</td>
+                        <td class="text-cam">@Html.DisplayFor(modelItem => item.airportId)</td>
                         </tr>
                     }
                         </tbody>

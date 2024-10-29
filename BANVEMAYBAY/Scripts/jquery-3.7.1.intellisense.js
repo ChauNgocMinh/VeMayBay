@@ -1302,16 +1302,16 @@ intellisense.annotate(jQuery.fn, {
   },
   'fadeTo': function() {
     /// <signature>
-    ///   <summary>Adjust the opacity of the matched elements.</summary>
+    ///   <summary>Adjust the opaairport of the matched elements.</summary>
     ///   <param name="duration" type="">A string or number determining how long the animation will run.</param>
-    ///   <param name="opacity" type="Number">A number between 0 and 1 denoting the target opacity.</param>
+    ///   <param name="opaairport" type="Number">A number between 0 and 1 denoting the target opaairport.</param>
     ///   <param name="complete" type="Function">A function to call once the animation is complete.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
-    ///   <summary>Adjust the opacity of the matched elements.</summary>
+    ///   <summary>Adjust the opaairport of the matched elements.</summary>
     ///   <param name="duration" type="">A string or number determining how long the animation will run.</param>
-    ///   <param name="opacity" type="Number">A number between 0 and 1 denoting the target opacity.</param>
+    ///   <param name="opaairport" type="Number">A number between 0 and 1 denoting the target opaairport.</param>
     ///   <param name="easing" type="String">A string indicating which easing function to use for the transition.</param>
     ///   <param name="complete" type="Function">A function to call once the animation is complete.</param>
     ///   <returns type="jQuery" />
@@ -1319,14 +1319,14 @@ intellisense.annotate(jQuery.fn, {
   },
   'fadeToggle': function() {
     /// <signature>
-    ///   <summary>Display or hide the matched elements by animating their opacity.</summary>
+    ///   <summary>Display or hide the matched elements by animating their opaairport.</summary>
     ///   <param name="duration" type="">A string or number determining how long the animation will run.</param>
     ///   <param name="easing" type="String">A string indicating which easing function to use for the transition.</param>
     ///   <param name="complete" type="Function">A function to call once the animation is complete.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
-    ///   <summary>Display or hide the matched elements by animating their opacity.</summary>
+    ///   <summary>Display or hide the matched elements by animating their opaairport.</summary>
     ///   <param name="options" type="PlainObject">A map of additional options to pass to the method.</param>
     ///   <returns type="jQuery" />
     /// </signature>

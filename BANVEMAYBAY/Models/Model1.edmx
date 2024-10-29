@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BANVEMAYBAYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="city">
+      <Schema Namespace="BanVeMayBayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="airport">
           <Key>
-            <PropertyRef Name="cityId" />
+            <PropertyRef Name="airportId" />
           </Key>
-          <Property Name="cityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="cityName" Type="nvarchar" MaxLength="250" />
+          <Property Name="airportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="airportName" Type="nvarchar" MaxLength="250" />
           <Property Name="countryId" Type="int" />
           <Property Name="status" Type="int" />
         </EntityType>
@@ -93,6 +93,16 @@
           <Property Name="description" Type="nvarchar" MaxLength="225" />
           <Property Name="GropID" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="ticket">
           <Key>
             <PropertyRef Name="id" />
@@ -156,12 +166,12 @@
         </EntityType>
         <Association Name="FK_city_country1">
           <End Role="country" Type="Self.country" Multiplicity="0..1" />
-          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <End Role="airport" Type="Self.airport" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="country">
               <PropertyRef Name="countryId" />
             </Principal>
-            <Dependent Role="city">
+            <Dependent Role="airport">
               <PropertyRef Name="countryId" />
             </Dependent>
           </ReferentialConstraint>
@@ -203,11 +213,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ticket_city">
-          <End Role="city" Type="Self.city" Multiplicity="0..1" />
+          <End Role="airport" Type="Self.airport" Multiplicity="0..1" />
           <End Role="ticket" Type="Self.ticket" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="city">
-              <PropertyRef Name="cityId" />
+            <Principal Role="airport">
+              <PropertyRef Name="airportId" />
             </Principal>
             <Dependent Role="ticket">
               <PropertyRef Name="fromAirport" />
@@ -215,11 +225,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ticket_city1">
-          <End Role="city" Type="Self.city" Multiplicity="0..1" />
+          <End Role="airport" Type="Self.airport" Multiplicity="0..1" />
           <End Role="ticket" Type="Self.ticket" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="city">
-              <PropertyRef Name="cityId" />
+            <Principal Role="airport">
+              <PropertyRef Name="airportId" />
             </Principal>
             <Dependent Role="ticket">
               <PropertyRef Name="toAirport" />
@@ -262,20 +272,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BANVEMAYBAYModelStoreContainer">
-          <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="BanVeMayBayModelStoreContainer">
+          <EntitySet Name="airport" EntityType="Self.airport" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="country" EntityType="Self.country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ordersdetail" EntityType="Self.ordersdetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="post" EntityType="Self.post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ticket" EntityType="Self.ticket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="topic" EntityType="Self.topic" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_city_country1" Association="Self.FK_city_country1">
             <End Role="country" EntitySet="country" />
-            <End Role="city" EntitySet="city" />
+            <End Role="airport" EntitySet="airport" />
           </AssociationSet>
           <AssociationSet Name="FK_menu_to_user" Association="Self.FK_menu_to_user">
             <End Role="user" EntitySet="user" />
@@ -290,11 +301,11 @@
             <End Role="ordersdetail" EntitySet="ordersdetail" />
           </AssociationSet>
           <AssociationSet Name="FK_ticket_city" Association="Self.FK_ticket_city">
-            <End Role="city" EntitySet="city" />
+            <End Role="airport" EntitySet="airport" />
             <End Role="ticket" EntitySet="ticket" />
           </AssociationSet>
           <AssociationSet Name="FK_ticket_city1" Association="Self.FK_ticket_city1">
-            <End Role="city" EntitySet="city" />
+            <End Role="airport" EntitySet="airport" />
             <End Role="ticket" EntitySet="ticket" />
           </AssociationSet>
           <AssociationSet Name="FK_topic_to_post1" Association="Self.FK_topic_to_post1">
@@ -314,18 +325,18 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="BANVEMAYBAYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="city">
+      <Schema Namespace="BanVeMayBayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="airport">
           <Key>
-            <PropertyRef Name="cityId" />
+            <PropertyRef Name="airportId" />
           </Key>
-          <Property Name="cityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cityName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="airportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="airportName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="countryId" Type="Int32" />
           <Property Name="status" Type="Int32" />
-          <NavigationProperty Name="country" Relationship="Self.FK_city_country1" FromRole="city" ToRole="country" />
-          <NavigationProperty Name="tickets" Relationship="Self.FK_ticket_city" FromRole="city" ToRole="ticket" />
-          <NavigationProperty Name="tickets1" Relationship="Self.FK_ticket_city1" FromRole="city" ToRole="ticket" />
+          <NavigationProperty Name="country" Relationship="Self.FK_city_country1" FromRole="airport" ToRole="country" />
+          <NavigationProperty Name="tickets" Relationship="Self.FK_ticket_city" FromRole="airport" ToRole="ticket" />
+          <NavigationProperty Name="tickets1" Relationship="Self.FK_ticket_city1" FromRole="airport" ToRole="ticket" />
         </EntityType>
         <EntityType Name="country">
           <Key>
@@ -334,7 +345,7 @@
           <Property Name="countryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="countryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="Int32" />
-          <NavigationProperty Name="cities" Relationship="Self.FK_city_country1" FromRole="country" ToRole="city" />
+          <NavigationProperty Name="airports" Relationship="Self.FK_city_country1" FromRole="country" ToRole="airport" />
         </EntityType>
         <EntityType Name="menu">
           <Key>
@@ -413,6 +424,16 @@
           <Property Name="GropID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="users" Relationship="Self.FK_user_to_role" FromRole="role" ToRole="user" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="ticket">
           <Key>
             <PropertyRef Name="id" />
@@ -438,8 +459,8 @@
           <Property Name="arrival_time" Type="Time" Precision="7" />
           <Property Name="fromAirport" Type="Int32" />
           <Property Name="toAirport" Type="Int32" />
-          <NavigationProperty Name="city" Relationship="Self.FK_ticket_city" FromRole="ticket" ToRole="city" />
-          <NavigationProperty Name="city1" Relationship="Self.FK_ticket_city1" FromRole="ticket" ToRole="city" />
+          <NavigationProperty Name="airport" Relationship="Self.FK_ticket_city" FromRole="ticket" ToRole="airport" />
+          <NavigationProperty Name="airport1" Relationship="Self.FK_ticket_city1" FromRole="ticket" ToRole="airport" />
           <NavigationProperty Name="ordersdetails" Relationship="Self.FK_orderDetail_to_product" FromRole="ticket" ToRole="ordersdetail" />
         </EntityType>
         <EntityType Name="topic">
@@ -484,22 +505,22 @@
         </EntityType>
         <Association Name="FK_city_country1">
           <End Role="country" Type="Self.country" Multiplicity="0..1" />
-          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <End Role="airport" Type="Self.airport" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="country">
               <PropertyRef Name="countryId" />
             </Principal>
-            <Dependent Role="city">
+            <Dependent Role="airport">
               <PropertyRef Name="countryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ticket_city">
-          <End Role="city" Type="Self.city" Multiplicity="0..1" />
+          <End Role="airport" Type="Self.airport" Multiplicity="0..1" />
           <End Role="ticket" Type="Self.ticket" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="city">
-              <PropertyRef Name="cityId" />
+            <Principal Role="airport">
+              <PropertyRef Name="airportId" />
             </Principal>
             <Dependent Role="ticket">
               <PropertyRef Name="fromAirport" />
@@ -507,11 +528,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ticket_city1">
-          <End Role="city" Type="Self.city" Multiplicity="0..1" />
+          <End Role="airport" Type="Self.airport" Multiplicity="0..1" />
           <End Role="ticket" Type="Self.ticket" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="city">
-              <PropertyRef Name="cityId" />
+            <Principal Role="airport">
+              <PropertyRef Name="airportId" />
             </Principal>
             <Dependent Role="ticket">
               <PropertyRef Name="toAirport" />
@@ -590,27 +611,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BANVEMAYBAYEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="cities" EntityType="Self.city" />
+        <EntityContainer Name="BanVeMayBayEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="airports" EntityType="Self.airport" />
           <EntitySet Name="countries" EntityType="Self.country" />
           <EntitySet Name="menus" EntityType="Self.menu" />
           <EntitySet Name="orders" EntityType="Self.order" />
           <EntitySet Name="ordersdetails" EntityType="Self.ordersdetail" />
           <EntitySet Name="posts" EntityType="Self.post" />
           <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="tickets" EntityType="Self.ticket" />
           <EntitySet Name="topics" EntityType="Self.topic" />
           <EntitySet Name="users" EntityType="Self.user" />
           <AssociationSet Name="FK_city_country1" Association="Self.FK_city_country1">
             <End Role="country" EntitySet="countries" />
-            <End Role="city" EntitySet="cities" />
+            <End Role="airport" EntitySet="airports" />
           </AssociationSet>
           <AssociationSet Name="FK_ticket_city" Association="Self.FK_ticket_city">
-            <End Role="city" EntitySet="cities" />
+            <End Role="airport" EntitySet="airports" />
             <End Role="ticket" EntitySet="tickets" />
           </AssociationSet>
           <AssociationSet Name="FK_ticket_city1" Association="Self.FK_ticket_city1">
-            <End Role="city" EntitySet="cities" />
+            <End Role="airport" EntitySet="airports" />
             <End Role="ticket" EntitySet="tickets" />
           </AssociationSet>
           <AssociationSet Name="FK_menu_to_user" Association="Self.FK_menu_to_user">
@@ -643,19 +665,19 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BANVEMAYBAYModelStoreContainer" CdmEntityContainer="BANVEMAYBAYEntities">
-          <EntitySetMapping Name="cities">
-            <EntityTypeMapping TypeName="BANVEMAYBAYModel.city">
-              <MappingFragment StoreEntitySet="city">
-                <ScalarProperty Name="cityId" ColumnName="cityId" />
-                <ScalarProperty Name="cityName" ColumnName="cityName" />
+        <EntityContainerMapping StorageEntityContainer="BanVeMayBayModelStoreContainer" CdmEntityContainer="BanVeMayBayEntities">
+          <EntitySetMapping Name="airports">
+            <EntityTypeMapping TypeName="BanVeMayBayModel.airport">
+              <MappingFragment StoreEntitySet="airport">
+                <ScalarProperty Name="airportId" ColumnName="airportId" />
+                <ScalarProperty Name="airportName" ColumnName="airportName" />
                 <ScalarProperty Name="countryId" ColumnName="countryId" />
                 <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="countries">
-            <EntityTypeMapping TypeName="BANVEMAYBAYModel.country">
+            <EntityTypeMapping TypeName="BanVeMayBayModel.country">
               <MappingFragment StoreEntitySet="country">
                 <ScalarProperty Name="countryId" ColumnName="countryId" />
                 <ScalarProperty Name="countryName" ColumnName="countryName" />
@@ -664,7 +686,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="menus">
-            <EntityTypeMapping TypeName="BANVEMAYBAYModel.menu">
+            <EntityTypeMapping TypeName="BanVeMayBayModel.menu">
               <MappingFragment StoreEntitySet="menu">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -683,7 +705,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="orders">
-            <EntityTypeMapping TypeName="BANVEMAYBAYModel.order">
+            <EntityTypeMapping TypeName="BanVeMayBayModel.order">
               <MappingFragment StoreEntitySet="order">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="guestTotal" ColumnName="guestTotal" />
@@ -701,7 +723,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ordersdetails">
-            <EntityTypeMapping TypeName="BANVEMAYBAYModel.ordersdetail">
+            <EntityTypeMapping TypeName="BanVeMayBayModel.ordersdetail">
               <MappingFragment StoreEntitySet="ordersdetail">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="orderid" ColumnName="orderid" />
@@ -711,7 +733,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="posts">
-            <EntityTypeMapping TypeName="BANVEMAYBAYModel.post">
+            <EntityTypeMapping TypeName="BanVeMayBayModel.post">
               <MappingFragment StoreEntitySet="post">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="topid" ColumnName="topid" />
@@ -729,7 +751,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="roles">
-            <EntityTypeMapping TypeName="BANVEMAYBAYModel.role">
+            <EntityTypeMapping TypeName="BanVeMayBayModel.role">
               <MappingFragment StoreEntitySet="role">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="parentId" ColumnName="parentId" />
@@ -739,8 +761,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BanVeMayBayModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tickets">
-            <EntityTypeMapping TypeName="BANVEMAYBAYModel.ticket">
+            <EntityTypeMapping TypeName="BanVeMayBayModel.ticket">
               <MappingFragment StoreEntitySet="ticket">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -767,7 +800,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="topics">
-            <EntityTypeMapping TypeName="BANVEMAYBAYModel.topic">
+            <EntityTypeMapping TypeName="BanVeMayBayModel.topic">
               <MappingFragment StoreEntitySet="topic">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -783,7 +816,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="BANVEMAYBAYModel.user">
+            <EntityTypeMapping TypeName="BanVeMayBayModel.user">
               <MappingFragment StoreEntitySet="user">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="fullname" ColumnName="fullname" />

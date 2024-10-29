@@ -1,6 +1,6 @@
-﻿using BANVEMAYBAY.Models;
-using BANVEMAYBAY.Common;
-using BANVEMAYBAY.Models;
+﻿using BanVeMayBay.Models;
+using BanVeMayBay.Common;
+using BanVeMayBay.Models;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -9,11 +9,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BANVEMAYBAY.Controllers
+namespace BanVeMayBay.Controllers
 {
     public class SiteController : Controller
     {
-        BANVEMAYBAYEntities db = new BANVEMAYBAYEntities();
+        BanVeMayBayEntities db = new BanVeMayBayEntities();
         public ActionResult Index()
         {
             return View();
@@ -64,7 +64,7 @@ namespace BANVEMAYBAY.Controllers
                     Message.set_flash("Return date must be greater than or equal to departure date!", "danger");
                     return Redirect("~/Home/Index");
                 }
-                var list = db.tickets.Where(m => m.city.cityName.Contains(noiBay) && m.city1.cityName.Contains(noiVe)).
+                var list = db.tickets.Where(m => m.airport.airportName.Contains(noiBay) && m.airport1.airportName.Contains(noiVe)).
              Where(m => m.departure_date == ngaybay3).Where(m => m.status == 1).ToList();
                 int pageNumber = (page ?? 1);
                 return View("flightSearchReturn", list.ToPagedList(pageNumber, pageSize));
@@ -75,7 +75,7 @@ namespace BANVEMAYBAY.Controllers
             {
 
                 //ve 1 chieu
-                var list = db.tickets.Where(m => m.city.cityName.Contains(noiBay) && m.city1.cityName.Contains(noiVe)).
+                var list = db.tickets.Where(m => m.airport.airportName.Contains(noiBay) && m.airport1.airportName.Contains(noiVe)).
              Where(m => m.departure_date == ngaybay3).Where(m=>m.status==1).ToList();
                 int pageNumber = (page ?? 1);
                 return View("flightSearchOnway", list.ToPagedList(pageNumber, pageSize));
@@ -87,7 +87,7 @@ namespace BANVEMAYBAY.Controllers
         public ActionResult return_ticket(DateTime date,string noibay, string noiden)
         {
            
-            var list = db.tickets.Where(m => m.city.cityName.Contains(noiden) && m.city1.cityName.Contains(noibay)).
+            var list = db.tickets.Where(m => m.airport.airportName.Contains(noiden) && m.airport1.airportName.Contains(noibay)).
                Where(m => m.departure_date == date).Where(m => m.status == 1).ToList();
             return View("_returnTicket", list);
         }

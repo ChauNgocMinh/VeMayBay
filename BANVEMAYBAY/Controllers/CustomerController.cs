@@ -1,16 +1,16 @@
-﻿using BANVEMAYBAY.Common;
-using BANVEMAYBAY.Models;
+﻿using BanVeMayBay.Common;
+using BanVeMayBay.Models;
 using System;
 using System.Linq;
 using System.Web.Mvc;
 using System.Data.Entity;
-using BANVEMAYBAY.Models;
+using BanVeMayBay.Models;
 
-namespace BANVEMAYBAY.Controllers
+namespace BanVeMayBay.Controllers
 {
     public class CustomerController : Controller
     {
-        private BANVEMAYBAYEntities db = new BANVEMAYBAYEntities();
+        private BanVeMayBayEntities db = new BanVeMayBayEntities();
         // GET: Customer
         public ActionResult Login()
         {

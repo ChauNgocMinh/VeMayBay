@@ -1,17 +1,17 @@
-﻿using BANVEMAYBAY.Models;
-using BANVEMAYBAY.Models;
+﻿using BanVeMayBay.Models;
+using BanVeMayBay.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BANVEMAYBAY.Controllers
+namespace BanVeMayBay.Controllers
 {
     public class ModulesController : Controller
     {
         // GET: Modules
-        BANVEMAYBAYEntities db = new BANVEMAYBAYEntities();
+        BanVeMayBayEntities db = new BanVeMayBayEntities();
         public ActionResult _Header()
         {
             if ((string)Session["userName11"] != "")

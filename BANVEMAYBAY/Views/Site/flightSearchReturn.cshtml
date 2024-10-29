@@ -1,5 +1,5 @@
 ﻿@using PagedList.Mvc;
-@model PagedList.IPagedList<BANVEMAYBAY.Models.ticket>
+@model PagedList.IPagedList<BanVeMayBay.Models.ticket>
 @{
     ViewBag.Title = "flightSearch";
     Layout = "~/Views/Shared/_layOutSite.cshtml";
@@ -44,12 +44,12 @@
                                         <img style="width:70px;height:50px" src="~/public/images/flight/@item.airline" alt="">
                                     </td>
                                     <td>
-                                        <h6>@item.city.cityName</h6>
-                                        <p>Airport (@item.city.cityName)</p>
+                                        <h6>@item.airport.airportName</h6>
+                                        <p>Airport (@item.airport.airportName)</p>
                                     </td>
                                     <td>
-                                        <h6>@item.city1.cityName</h6>
-                                        <P>Airport (@item.city1.cityName)</P>
+                                        <h6>@item.airport1.airportName</h6>
+                                        <P>Airport (@item.airport1.airportName)</P>
                                     </td>
                                     <td>
                                         <h6><strong class="color-red-3">@item.price.Value.ToString("N0") $</strong></h6>

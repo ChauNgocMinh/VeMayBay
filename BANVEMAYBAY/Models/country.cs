@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BANVEMAYBAY.Models
+namespace BanVeMayBay.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace BANVEMAYBAY.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public country()
         {
-            this.cities = new HashSet<city>();
+            this.airports = new HashSet<airport>();
         }
     
         public int countryId { get; set; }
@@ -25,6 +25,6 @@ namespace BANVEMAYBAY.Models
         public Nullable<int> status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<city> cities { get; set; }
+        public virtual ICollection<airport> airports { get; set; }
     }
 }

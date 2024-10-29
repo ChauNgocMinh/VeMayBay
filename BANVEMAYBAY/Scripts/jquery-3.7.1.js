@@ -6728,12 +6728,12 @@ jQuery.extend( {
 	// Add in style property hooks for overriding the default
 	// behavior of getting and setting a style property
 	cssHooks: {
-		opacity: {
+		opaairport: {
 			get: function( elem, computed ) {
 				if ( computed ) {
 
-					// We should always get a number back from opacity
-					var ret = curCSS( elem, "opacity" );
+					// We should always get a number back from opaairport
+					var ret = curCSS( elem, "opaairport" );
 					return ret === "" ? "1" : ret;
 				}
 			}
@@ -6757,7 +6757,7 @@ jQuery.extend( {
 		gridRowEnd: true,
 		gridRowStart: true,
 		lineHeight: true,
-		opacity: true,
+		opaairport: true,
 		order: true,
 		orphans: true,
 		scale: true,
@@ -6766,11 +6766,11 @@ jQuery.extend( {
 		zoom: true,
 
 		// SVG-related
-		fillOpacity: true,
-		floodOpacity: true,
-		stopOpacity: true,
+		fillOpaairport: true,
+		floodOpaairport: true,
+		stopOpaairport: true,
 		strokeMiterlimit: true,
-		strokeOpacity: true
+		strokeOpaairport: true
 	},
 
 	// Add in properties whose names you wish to fix before
@@ -7190,7 +7190,7 @@ function genFx( type, includeWidth ) {
 	}
 
 	if ( includeWidth ) {
-		attrs.opacity = attrs.width = type;
+		attrs.opaairport = attrs.width = type;
 	}
 
 	return attrs;
@@ -7631,11 +7631,11 @@ jQuery.speed = function( speed, easing, fn ) {
 jQuery.fn.extend( {
 	fadeTo: function( speed, to, easing, callback ) {
 
-		// Show any hidden elements after setting opacity to 0
-		return this.filter( isHiddenWithinTree ).css( "opacity", 0 ).show()
+		// Show any hidden elements after setting opaairport to 0
+		return this.filter( isHiddenWithinTree ).css( "opaairport", 0 ).show()
 
 			// Animate to the value specified
-			.end().animate( { opacity: to }, speed, easing, callback );
+			.end().animate( { opaairport: to }, speed, easing, callback );
 	},
 	animate: function( prop, speed, easing, callback ) {
 		var empty = jQuery.isEmptyObject( prop ),
@@ -7766,9 +7766,9 @@ jQuery.each( {
 	slideDown: genFx( "show" ),
 	slideUp: genFx( "hide" ),
 	slideToggle: genFx( "toggle" ),
-	fadeIn: { opacity: "show" },
-	fadeOut: { opacity: "hide" },
-	fadeToggle: { opacity: "toggle" }
+	fadeIn: { opaairport: "show" },
+	fadeOut: { opaairport: "hide" },
+	fadeToggle: { opaairport: "toggle" }
 }, function( name, props ) {
 	jQuery.fn[ name ] = function( speed, easing, callback ) {
 		return this.animate( props, speed, easing, callback );

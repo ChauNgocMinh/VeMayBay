@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<BANVEMAYBAY.Models.ticket>
+@model IEnumerable<BanVeMayBay.Models.ticket>
 @{
     ViewBag.Title = "flightSearch";
     Layout = "~/Views/Shared/_layOutSite.cshtml";
@@ -35,12 +35,12 @@
                             {
                                 <tr>
                                     <td>
-                                        <h6>@item.city.cityName</h6>
-                                        <p>Airport (@item.city.cityName)</p>
+                                        <h6>@item.airport.airportName</h6>
+                                        <p>Airport (@item.airport.airportName)</p>
                                     </td>
                                     <td>
-                                        <h6>@item.city1.cityName</h6>
-                                        <P>Airport (@item.city1.cityName)</P>
+                                        <h6>@item.airport1.airportName</h6>
+                                        <P>Airport (@item.airport1.airportName)</P>
                                     </td>
                                     <td>
                                         <a href="~/chuyen-bay/@item.id">Detail</a>

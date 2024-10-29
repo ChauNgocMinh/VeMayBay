@@ -308,7 +308,7 @@ abtn-blue:hover{
   background: url(../images/loader.gif);
   background-size: cover;
   background-position: center;
-  opacity: 1;
+  opaairport: 1;
   visibility: visible;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -1160,8 +1160,8 @@ section.popular-packages{
   position: relative;
   max-width: none;
   width: calc(100% + 60px) !important;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.45s;
-  transition: opacity 0.35s, transform 0.45s;
+  -webkit-transition: opaairport 0.35s, -webkit-transform 0.45s;
+  transition: opaairport 0.35s, transform 0.45s;
   -webkit-transform: translate3d(-40px,0,0);
   transform: translate3d(-40px,0,0);
 }
@@ -1170,8 +1170,8 @@ section.popular-packages{
   transform: translateY(-5px);
 }
 .package-item:hover img{
-  opacity: 0.6;
-  filter: alpha(opacity=60);
+  opaairport: 0.6;
+  filter: alpha(opaairport=60);
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
@@ -1365,11 +1365,11 @@ span.deal-price {
   left: 0;
   background-image: linear-gradient(to bottom right, #ff00001c, #ffff0047);
   content: '';
-  opacity: 0;
+  opaairport: 0;
   transition: all ease-in-out 0.3s;
 }
 .deals-item:hover .deals-image:after{
-  opacity: 1;
+  opaairport: 1;
 }
 .deals .slick-dots li button:before,
 .deals .slick-dots li.slick-active button:before{
@@ -1563,8 +1563,8 @@ section.bucket-list{padding-bottom: 0;}
   position: relative;
   max-width: none;
   width: calc(100% + 20px);
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transition: opaairport 0.35s, -webkit-transform 0.35s;
+  transition: opaairport 0.35s, transform 0.35s;
   -webkit-transform: translate3d(-10px,0,0);
   transform: translate3d(-10px,0,0);
   -webkit-backface-visibility: hidden;
@@ -1572,8 +1572,8 @@ section.bucket-list{padding-bottom: 0;}
 }
 
 .top-destination-item:hover img {
-  opacity: 0.4;
-  filter: alpha(opacity=40);
+  opaairport: 0.4;
+  filter: alpha(opaairport=40);
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
@@ -1612,17 +1612,17 @@ section.bucket-list{padding-bottom: 0;}
 
 .top-destination-item p {
   color: #FFF;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
+  opaairport: 0;
+  filter: alpha(opaairport=0);
+  -webkit-transition: opaairport 0.35s, -webkit-transform 0.35s;
+  transition: opaairport 0.35s, transform 0.35s;
   -webkit-transform: translate3d(100%,0,0);
   transform: translate3d(100%,0,0);
 }
 
 .top-destination-item:hover p {
-  opacity: 1;
-  filter: alpha(opacity=100);
+  opaairport: 1;
+  filter: alpha(opaairport=100);
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
@@ -1824,7 +1824,7 @@ section.trusted-partners{
   transition: all ease-in-out 0.3s;
 }
 .partners-logo li:hover{
-  opacity: 0.7;
+  opaairport: 0.7;
 }
 .partners-title h3{
   color: #fff;
@@ -1892,10 +1892,10 @@ footer{
 }
 .footer-links li a{
   color: #fff;
-  opacity: 0.8;
+  opaairport: 0.8;
 }
 .footer-links li a:hover{
-  opacity: 1;
+  opaairport: 1;
 }
 .footer-links li a i{
   padding-left: 5px;
@@ -2099,7 +2099,7 @@ span.new-price{
   color: #fff;
 }
 .sale-content h3 a:hover{
-  opacity: 0.8;
+  opaairport: 0.8;
 }
 .sale-content .sale-review{
   text-align: left;
@@ -2211,11 +2211,11 @@ section.destination-padding{
   width: 100%;
   left: 0;
   top: 0;
-  opacity: 0;
+  opaairport: 0;
   transition: all ease-in-out 0.3s;
 }
 .destination-item:hover .destination-overlay{
-  opacity: 0.5;
+  opaairport: 0.5;
 }
 .destination-item:hover img{
   transform: scale(1.1);
@@ -2234,11 +2234,11 @@ section.destination-padding{
   position: absolute;
   top: 50%;
   left: 50%;
-  opacity: 0;
+  opaairport: 0;
   transition: all ease-in-out 0.3s;
 }
 .destination-item:hover .destination-btn{
-  opacity: 1;
+  opaairport: 1;
   transform: translate(-50%,-50%);
 }
 .destination-4-col .destination-btn{
@@ -2876,7 +2876,7 @@ section.trekking{
   text-align: center;
   background: #005294ad;
   padding: 40px 0;
-  opacity: 0;
+  opaairport: 0;
   transition: all ease-in-out 0.3s;
   z-index: 1;
 }
@@ -2892,11 +2892,11 @@ section.trekking{
   color: #005294;
 }
 .trekking-item:hover .trekking-content{
-  opacity: 1;
+  opaairport: 1;
   transform: translate(-50%,-50%);
 }
 .trekking-item:hover .trekking-title{
-  opacity: 0;
+  opaairport: 0;
 }
 
 /* ====================== */
@@ -3689,7 +3689,7 @@ section.aboutus{
   transition: all ease-in-out 0.3s;
 }
 .about-item:hover .about-icon i{
-  opacity: 0.8;
+  opaairport: 0.8;
 }
 .about-content{
   padding-top: 20px;
@@ -3809,7 +3809,7 @@ section.aboutus{
 .product-categories , .product-categories a{color: #D60D45; font-size: 14px;}
 
 
-.rt-product-meta-wrapper del{opacity: 0.6; font-size: 16px;}
+.rt-product-meta-wrapper del{opaairport: 0.6; font-size: 16px;}
 
 .rt-product-meta-wrapper ins {
     padding-left: 15px;
@@ -3881,9 +3881,9 @@ section.aboutus{
 
 .store-detail .slider.slider-thumbs{margin-top: 2px;}
 
-.store-detail .slider.slider-thumbs .slick-slide{opacity: 0.5;}
+.store-detail .slider.slider-thumbs .slick-slide{opaairport: 0.5;}
 
-.store-detail .slider.slider-thumbs .slick-slide.slick-active{opacity: 1;}
+.store-detail .slider.slider-thumbs .slick-slide.slick-active{opaairport: 1;}
 
 .store-detail .slider.slider-thumbs .slick-prev, .store-detail .slider.slider-thumbs .slick-next{top: 45%; background: none;}
 
@@ -3891,7 +3891,7 @@ section.aboutus{
 
 .store-detail .slider.slider-thumbs .slick-next{right: 0;}
 
-.store-detail .slider.slider-thumbs .slick-prev:before, .store-detail .slider.slider-thumbs .slick-next:before{color:#eb262a; opacity: 1;background: none;}
+.store-detail .slider.slider-thumbs .slick-prev:before, .store-detail .slider.slider-thumbs .slick-next:before{color:#eb262a; opaairport: 1;background: none;}
 
 .store-detail .rt-product-meta-wrapper{background: transparent; text-align: left; padding: 0; border: none;}
 
@@ -4039,7 +4039,7 @@ input.quantity-input {
     background-color: #fff;
     text-align: left;
     z-index: 1000;
-    opacity: 0;
+    opaairport: 0;
     visibility: hidden;
     box-sizing: border-box;
     -webkit-transition: all .35s cubic-bezier(.53,.01,.18,1);
@@ -4049,7 +4049,7 @@ input.quantity-input {
 }
 
 .shopping-cart-holder:hover .shopping-cart-dropdown {
-    opacity: 1;
+    opaairport: 1;
     visibility: visible;
 }
 
@@ -4145,7 +4145,7 @@ input.quantity-input {
 }
 
 .shopping-cart-dropdown .cart-bottom a:hover{
-  opacity: 0.9;
+  opaairport: 0.9;
   color: #fff;
 }
 
@@ -4415,7 +4415,7 @@ header.head-style-1{
   margin-top: 25px;
 }
 .head-style-1 .login-btn a:hover{
-  opacity: 0.8;
+  opaairport: 0.8;
 }
 .head-style-1 .login-btn{
   line-height: 3.5;
@@ -4517,7 +4517,7 @@ section.amazing-tours{
   height: 100%;
   width: 100%;
   background: rgb(0,0,0);
-  opacity: 0;
+  opaairport: 0;
   transition: all ease-in-out 0.3s;
 }
 .at-image img{
@@ -4538,7 +4538,7 @@ section.amazing-tours{
   transform: scale(1);
 }
 .at-image:hover .at-overlay{
-  opacity: 0.5;
+  opaairport: 0.5;
 }
 .at-content h3 a:hover{
   color: #ccc;
@@ -4854,14 +4854,14 @@ p.top-price{
   text-align: left;
 }
 .sale-content-inner{
-  opacity: 0;
+  opaairport: 0;
   transition: all ease-in-out 0.3s;
 }
 .sale-item:hover .sale-content-1{
   top: 0;
 }
 .sale-item:hover .sale-content-inner{
-  opacity: 1;
+  opaairport: 1;
 }
 .style-1 .partners-logo .slick-slide img {
   border-radius: 10px;
@@ -5253,7 +5253,7 @@ body.style-3 {
 .style-3 .head-style-1 .nav.navbar-nav > li.active > a, 
 .style-3 .head-style-1 .navbar-default .navbar-nav>.active>a{
   background: transparent;
-  opacity: 0.8;}
+  opaairport: 0.8;}
 
 /*banner*/
 section#home_banner_new{padding-bottom: 0;}
@@ -5470,7 +5470,7 @@ section#mt_services {
 
 .style-3 .cta-content a.btn-blue.btn-style-1:hover {
     color: #fff;
-    opacity: 0.8;
+    opaairport: 0.8;
 }
 
 .style-3 .tour-cta .video-thumbnail {
@@ -5594,7 +5594,7 @@ section#mt_services {
 }
 
 .style-3 .blog-content h3 a:hover {
-    opacity: 0.8;
+    opaairport: 0.8;
     color: #fff;
 }
 .style-3 .blog-author{padding: 0; border: none;}
@@ -5815,7 +5815,7 @@ body.style-tab::after {
     width: .5px!important;
     height: 100%!important;
     padding: 0!important;
-    opacity: 0!important;
+    opaairport: 0!important;
     border: 0;
 }
 
@@ -6004,7 +6004,7 @@ body.style-tab::after {
   color: #fff;
 }
 .dark .blog-content a:hover{
-  opacity: 0.8;
+  opaairport: 0.8;
 }
 .dark section.deals{
   background: url(../images/dealsbg.jpg) no-repeat;

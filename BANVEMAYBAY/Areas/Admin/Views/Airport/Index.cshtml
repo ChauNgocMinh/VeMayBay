@@ -20,9 +20,9 @@
         <div class="row justify-content-end">
             <div class="col-md-3">
                 <div class=" pt-1 ml-9">
-                    <a class="text-white btn btn-green" href="~/admin/Airport/Create">Thêm sân bay</a>
-                    <a class="text-white btn btn-green" href="~/admin/Airport/CreateCities">Thêm vé</a>
-                    @*<a class="text-white btn btn-danger" href="~/admin/Airport/trash">Lịch sử sóa</a>*@
+                    <a class="text-white btn btn-green" href="~/admin/Airport/Create">Thêm quốc gia</a>
+                    <a class="text-white btn btn-green" href="~/admin/Airport/CreateCities">Thêm sân bay</a>
+                    @*<a class="text-white btn btn-danger" href="~/admin/Airport/trash">Lịch sử xóa</a>*@
                 </div>
             </div>
         </div>
@@ -38,28 +38,28 @@
                         <tr>
                             <th>Id</th>
                             <th>Quốc gia</th>
-                            <th>Thành phố</th>
+                            <th>Sân bay</th>
                             <th>Chức năng</th>
                         </tr>
 
                     </thead>
                     <tbody>
-                        @foreach (var item in ViewBag.cities)
+                        @foreach (var item in ViewBag.countries)
                         { 
                             <tr>
-                                <td class="text-cam">@item.cityId</td>
+                                <td class="text-cam">@item.airportId</td>
                                 <td style="font-size:14px;">@item.country.countryName</td>
-                                <td style="font-size:14px;">@item.cityName</td>
+                                <td style="font-size:14px;">@item.airportName</td>
                                 <td>
                                     @if (item.status == 1)
                                     {
-                                        <a class="btn btn-sm btn-light text-success border a33" href="@Url.Action("Status", "Airport", new { id = item.cityId })"> <i class="fas fa-toggle-on"></i> </a>
+                                        <a class="btn btn-sm btn-light text-success border a33" href="@Url.Action("Status", "Airport", new { id = item.airportId })"> <i class="fas fa-toggle-on"></i> </a>
                                     }
                                     else
                                     {
-                                        <a class="btn btn-sm btn-light text-danger border a33" href="@Url.Action("Status", "Airport", new { id = item.cityId})"> <i class="fas fa-toggle-off"></i> </a>
+                                        <a class="btn btn-sm btn-light text-danger border a33" href="@Url.Action("Status", "Airport", new { id = item.airportId})"> <i class="fas fa-toggle-off"></i> </a>
                                     }
-                                    <a class="btn btn-sm btn-light text-danger border" href="@Url.Action("Deltrash", "Airport", new { id = item.cityId})"> <i class="fas fa-trash-alt"></i></a>
+                                    <a class="btn btn-sm btn-light text-danger border" href="@Url.Action("Deltrash", "Airport", new { id = item.airportId})"> <i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         }

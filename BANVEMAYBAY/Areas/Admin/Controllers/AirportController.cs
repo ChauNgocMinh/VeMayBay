@@ -7,20 +7,20 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using BANVEMAYBAY.Models;
-using BANVEMAYBAY.Common;
-using BANVEMAYBAY.Models;
+using BanVeMayBay.Models;
+using BanVeMayBay.Common;
+using BanVeMayBay.Models;
 
-namespace BANVEMAYBAY.Areas.Admin.Controllers
+namespace BanVeMayBay.Areas.Admin.Controllers
 {
     public class AirportController : BaseController
     {
-        private BANVEMAYBAYEntities db = new BANVEMAYBAYEntities();
+        private BanVeMayBayEntities db = new BanVeMayBayEntities();
         // GET: Admin/Tickets
         public ActionResult Index()
         {
-            var cities = db.cities.Where(m => m.status == 1).ToList();
-            ViewBag.cities = cities;
+            var countries = db.countries.Where(m => m.status == 1).ToList();
+            ViewBag.countries = countries;
             return View();
         }
 
@@ -78,26 +78,26 @@ namespace BANVEMAYBAY.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateCities(city cities)
+        public ActionResult CreateCities(country countries)
         {
 
             if (ModelState.IsValid)
             {
-                db.cities.Add(cities);
+                db.countries.Add(countries);
                 Message.set_flash("Successfully added Cities", "success");
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            Message.set_flash("More failed cities", "danger");
+            Message.set_flash("More failed countries", "danger");
             return View("Create");
         }
 
 
         public ActionResult Status(int id)
         {
-            city cities = db.cities.Find(id);
-            cities.status = (cities.status == 1) ? 2 : 1;
-            db.Entry(cities).State = EntityState.Modified;
+            country countries = db.countries.Find(id);
+            countries.status = (countries.status == 1) ? 2 : 1;
+            db.Entry(countries).State = EntityState.Modified;
             db.SaveChanges();
             Message.set_flash("Status change successful", "success");
             return RedirectToAction("Index");
@@ -105,13 +105,13 @@ namespace BANVEMAYBAY.Areas.Admin.Controllers
         //trash
         //public ActionResult trash()
         //{
-        //    var list = db.cities.Where(m => m.status == 2).ToList();
+        //    var list = db.countries.Where(m => m.status == 2).ToList();
         //    return View("Trash", list);
         //}
         [CustomAuthorizeAttribute(RoleID = "ADMIN")]
         public ActionResult Deltrash(int id)
         {
-            city morder = db.cities.Find(id);
+            country morder = db.countries.Find(id);
             morder.status = 2;
             db.Entry(morder).State = EntityState.Modified;
             db.SaveChanges();
@@ -121,7 +121,7 @@ namespace BANVEMAYBAY.Areas.Admin.Controllers
         [CustomAuthorizeAttribute(RoleID = "ADMIN")]
         public ActionResult Retrash(int id)
         {
-            city morder = db.cities.Find(id);
+            country morder = db.countries.Find(id);
             morder.status = 1;
             db.Entry(morder).State = EntityState.Modified;
             db.SaveChanges();
@@ -131,8 +131,8 @@ namespace BANVEMAYBAY.Areas.Admin.Controllers
         [CustomAuthorizeAttribute(RoleID = "ADMIN")]
         public ActionResult deleteTrash(int id)
         {
-            city morder = db.cities.Find(id);
-            db.cities.Remove(morder);
+            country morder = db.countries.Find(id);
+            db.countries.Remove(morder);
             db.SaveChanges();
             Message.set_flash("Permanently deleted 1 Order", "success");
             return RedirectToAction("trash");

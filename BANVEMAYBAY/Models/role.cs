@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BANVEMAYBAY.Models
+namespace BanVeMayBay.Models
 {
     using System;
     using System.Collections.Generic;

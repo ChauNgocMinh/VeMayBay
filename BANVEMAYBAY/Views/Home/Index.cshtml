@@ -26,9 +26,9 @@
                             <div class="form-group">
                                 <select name="departure_address" class="selectpicker form-control" tabindex="1" required>
 
-                                    @foreach (var item in ViewBag.cities)
+                                    @foreach (var item in ViewBag.airports)
                                     {
-                                        <option value="@item.cityName">@item.cityName</option>
+                                        <option value="@item.airportName">@item.airportName</option>
                                     }
 
                                 </select>
@@ -42,9 +42,9 @@
                                 <select name="arrival_address" class="selectpicker form-control" tabindex="1">
 
 
-                                    @foreach (var item in ViewBag.cities)
+                                    @foreach (var item in ViewBag.airports)
                                     {
-                                        <option value="@item.cityName">@item.cityName</option>
+                                        <option value="@item.airportName">@item.airportName</option>
                                     }
 
                                 </select>
@@ -191,12 +191,12 @@
                             {
                                 <tr>
                                     <td>
-                                        <h6>@item.city.cityName</h6>
-                                        <p>Airport (@item.city.cityName)</p>
+                                        <h6>@item.airport.airportName</h6>
+                                        <p>Airport (@item.airport.airportName)</p>
                                     </td>
                                     <td>
-                                        <h6>@item.city1.cityName</h6>
-                                        <P>Airport (@item.city1.cityName)</P>
+                                        <h6>@item.airport1.airportName</h6>
+                                        <P>Airport (@item.airport1.airportName)</P>
                                     </td>
                                     <td>
                                         <h6>@item.departure_time</h6>

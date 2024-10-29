@@ -1,4 +1,4 @@
-﻿@model BANVEMAYBAY.Models.ticket
+﻿@model BanVeMayBay.Models.ticket
 
 @{
     ViewBag.Title = "Update";
@@ -56,10 +56,10 @@
                         <label for="psw"><span class="text-secondary font-weight-bold">From</span></label>
                         <select name="fromAirport" class="selectpicker form-control" tabindex="1">
 
-                            @foreach (var item in ViewBag.cities)
+                            @foreach (var item in ViewBag.countries)
                             {
-                                <option value="@Model.city.cityId">@Model.city.cityName</option>
-                                <option value="@item.cityId">@item.cityName</option>
+                                <option value="@Model.airport.airportId">@Model.airport.airportName</option>
+                                <option value="@item.airportId">@item.airportName</option>
                             }
 
 
@@ -69,10 +69,10 @@
                         <label for="psw"><span class="text-secondary font-weight-bold">To</span></label>
                         <select name="toAirport" class="selectpicker form-control" tabindex="1">
 
-                            @foreach (var item in ViewBag.cities)
+                            @foreach (var item in ViewBag.countries)
                             {
-                                <option value="@Model.city1.cityId">@Model.city1.cityName</option>
-                                <option value="@item.cityId">@item.cityName</option>
+                                <option value="@Model.airport1.airportId">@Model.airport1.airportName</option>
+                                <option value="@item.airportId">@item.airportName</option>
                             }
 
 

@@ -1,6 +1,6 @@
-﻿using BANVEMAYBAY.Models;
-using BANVEMAYBAY.Common;
-using BANVEMAYBAY.Models;
+﻿using BanVeMayBay.Models;
+using BanVeMayBay.Common;
+using BanVeMayBay.Models;
 using System;
 using System.Data;
 using System.Data.Entity;
@@ -8,12 +8,12 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
-namespace BANVEMAYBAY.Areas.Admin.Controllers
+namespace BanVeMayBay.Areas.Admin.Controllers
 {
   
     public class UserController : BaseController
     {
-        private BANVEMAYBAYEntities db = new BANVEMAYBAYEntities();
+        private BanVeMayBayEntities db = new BanVeMayBayEntities();
 
         // GET: Admin/User
         public ActionResult Index()

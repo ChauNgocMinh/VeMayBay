@@ -1,6 +1,6 @@
-﻿using BANVEMAYBAY.Models;
-using BANVEMAYBAY.Common;
-using BANVEMAYBAY.Models;
+﻿using BanVeMayBay.Models;
+using BanVeMayBay.Common;
+using BanVeMayBay.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,11 +8,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BANVEMAYBAY.Controllers
+namespace BanVeMayBay.Controllers
 {
     public class CheckoutController : Controller
     {
-        BANVEMAYBAYEntities db = new BANVEMAYBAYEntities();
+        BanVeMayBayEntities db = new BanVeMayBayEntities();
         public ActionResult Invalid()
         {
             return View("Invalid");

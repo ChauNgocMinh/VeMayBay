@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 
 
-namespace BANVEMAYBAY.Common
+namespace BanVeMayBay.Common
 {
     public class CustomAuthorizeAttribute : AuthorizeAttribute
     {

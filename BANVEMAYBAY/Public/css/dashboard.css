@@ -95,7 +95,7 @@ textarea:focus {
 	transition: box-shadow 0.2s !important;
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.07);
 	border: 1px solid #d8d8d8;
-	opacity: 1;
+	opaairport: 1;
 }
 
 input[type="submit"] {
@@ -120,22 +120,22 @@ input[type="radio"] {
 /* Input Placeholder Color */
 ::-webkit-input-placeholder { /* WebKit browsers */
 	color: #888;
-	opacity: 1;
+	opaairport: 1;
 }
 
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
 	color: #888;
-	opacity: 1;
+	opaairport: 1;
 }
 
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
 	color: #888;
-	opacity: 1;
+	opaairport: 1;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10+ */
 	color: #888;
-	opacity: 1;
+	opaairport: 1;
 }
 
 textarea {
@@ -386,7 +386,7 @@ img { max-width: 100%; }
 	height: 51px;
 }
 
-.select-styled { opacity: 0; }
+.select-styled { opaairport: 0; }
 
 .select-options {
 	display: none;
@@ -745,8 +745,8 @@ body .comment-content p { padding: 5px 0; font-size: 15px; }
     margin: 0;
     padding: 0;
     cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
+    opaairport: 0;
+    filter: alpha(opaairport=0);
 }
 
 .add-review-photos:hover {
@@ -946,14 +946,14 @@ a.button:before {
 position: absolute;
 	left: 0;
 	top: 0;
-	opacity: 0;
+	opaairport: 0;
 	transition: all 0.2s;
 }
 
 
 button.button:hover:before,
 a.button:hover:before {
-	opacity: 0.1;
+	opaairport: 0.1;
 }
 
 a.button.white {
@@ -976,7 +976,7 @@ a.button.border {
 a.button.border:hover {
 	background-color: #66676b;
 	color: #fff;
-	opacity: 1;
+	opaairport: 1;
 }
 
 a.button.border.white {
@@ -1155,14 +1155,14 @@ body .icon-box-3.rounded:hover i {
 	right: 0;
 	background-color: #fff;
 	z-index: 8;
-	transition: height 0.3s ease-in-out, opacity 0.3s ease-out;
-	opacity: 0;
+	transition: height 0.3s ease-in-out, opaairport 0.3s ease-out;
+	opaairport: 0;
 	transform: translate3d(50%,-50%,0) scale(1) rotate(45deg);
 }
 
 .icon-box-1.rounded:hover i:after,
 .icon-box-2.rounded:hover i:after,
-.icon-box-3.rounded:hover i:after { height: 145%; opacity: 0.1; }
+.icon-box-3.rounded:hover i:after { height: 145%; opaairport: 0.1; }
 
 
 /* Dark and Light Icon Box Styles */
@@ -2000,13 +2000,13 @@ input[type=file]{height: auto; padding: 10px;}
     pointer-events: none;
     z-index: 999;
 	text-align: center;
-	opacity: 0;
+	opaairport: 0;
 	visibility: hidden;
 	transition: all 0.3s;
 }
 
 .tip:hover .tip-content {
-	opacity: 1;
+	opaairport: 1;
 	visibility: visible;
 	transform: translate(-50%, calc(-100% - 13px));
 	-ms-transform: translate(-50%, -115%);
@@ -2156,13 +2156,13 @@ input[type=file]{height: auto; padding: 10px;}
 }
 
 .add-listing-section .switcher-content {
-	opacity: 0.4;
+	opaairport: 0.4;
 	pointer-events: none;
 	transition: 0.4s;
 }
 
 .add-listing-section.switcher-on .switcher-content {
-	opacity: 1;
+	opaairport: 1;
 	pointer-events: all;
 }
 
@@ -2296,7 +2296,7 @@ input[type=file]{height: auto; padding: 10px;}
 	z-index: 1;
 	display: block;
 	background-color: #272729;
-	opacity: 0.2;
+	opaairport: 0.2;
 }
 
 .listing-item-container.list-layout span.like-icon {
@@ -2406,7 +2406,7 @@ section.fullwidth .listing-item-container.list-layout,
 	background: linear-gradient(to top, rgba(35,35,37,0.9) 0%, rgba(35,35,37,0.45) 35%, rgba(22,22,23,0) 60%, rgba(0,0,0,0) 100%);
 	background-color: rgba(35,35,37,0.2);
 	border-radius: 4px 4px 0 0;
-	opacity: 1;
+	opaairport: 1;
 }
 
 .listing-item-content {
@@ -2645,7 +2645,7 @@ span.like-icon {
 
 .like-icon:before,
 .like-icon:after {
-	transition: opacity 0.3s, transform 0.4s cubic-bezier(.0,-.41,.19,2.5);
+	transition: opaairport 0.3s, transform 0.4s cubic-bezier(.0,-.41,.19,2.5);
 	font-family: "FontAwesome";
 	position: absolute;
 	right: 0;
@@ -2661,12 +2661,12 @@ span.like-icon {
 
 .like-icon:after {
 	content: "\f004";
-	opacity: 0;
+	opaairport: 0;
 	transform: scale(0.5);
 }
 
 .like-icon.liked:after {
-	opacity: 1;
+	opaairport: 1;
 	transform: scale(0.95);
 }
 
@@ -2676,7 +2676,7 @@ span.like-icon {
 }
 
 .like-icon.liked:before{
-	opacity: 0;
+	opaairport: 0;
 }
 
 /* Badges */
@@ -3050,7 +3050,7 @@ a.dashboard-responsive-nav-trigger { display: none; }
 	margin: 0;
 	visibility: hidden;
 	max-height: 0;
-	opacity: 0;
+	opaairport: 0;
 	line-height: 0;
 	transition: 0.2s;
 }
@@ -3059,7 +3059,7 @@ a.dashboard-responsive-nav-trigger { display: none; }
 	visibility: visible;
 	padding: 0 0 15px 0;
 	line-height: 24px;
-	opacity: 1;
+	opaairport: 1;
 	max-height: 300px;
 }
 
@@ -3297,7 +3297,7 @@ span.notify{
 	line-height: 1;
 	padding: 0 25px;
 	top: 35px;
-	opacity: 0.6;
+	opaairport: 0.6;
 }
 .dashboard-stat-item{
 	position: absolute;
@@ -3494,13 +3494,13 @@ a.close-list-item {
 	top: 50%;
 	transform: translateY(-50%);
 	right: 30px;
-	opacity: 0;
+	opaairport: 0;
 	padding: 4px;
 	color: #ea2828;
 	transition: 0.3s;
 }
 
-.dashboard-list-box ul li:hover a.close-list-item { opacity: 1; }
+.dashboard-list-box ul li:hover a.close-list-item { opaairport: 1; }
  
 
 /* Reset for child ul  */
@@ -3563,14 +3563,14 @@ a.close-list-item {
 	top: 50%;
 	transform: translate3d(0,-49%,0);
 	-moz-transform: translate3d(0,-50%,0);
-	opacity: 0;
+	opaairport: 0;
 	transition: 0.4s;
 	box-shadow: 0px 0px 10px 15px #fbfbfb; 
 }
 
 
 .dashboard-list-box li:hover .buttons-to-right,
-.dashboard-list-box li:hover .button.to-right { opacity: 1; }
+.dashboard-list-box li:hover .button.to-right { opaairport: 1; }
 
 .buttons-to-right { box-shadow: none; }
 .buttons-to-right .button { margin-left: 2px; }
@@ -3627,8 +3627,8 @@ a.close-list-item {
     margin: 0;
     padding: 0;
     cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
+    opaairport: 0;
+    filter: alpha(opaairport=0);
 }
 
 .change-photo-btn:hover {
@@ -4141,7 +4141,7 @@ a.close-list-item {
 		border-radius: 0 0 4px 4px;
 		position: relative;
 		min-height: auto;
-		opacity: 1;
+		opaairport: 1;
 		visibility: hidden;
 		max-height: 0;
 		padding: 0;
@@ -4150,7 +4150,7 @@ a.close-list-item {
 
 	.dashboard-nav.active ul,
 	.dashboard-nav.active {
-		opacity: 1;
+		opaairport: 1;
 		visibility: visible;
 		max-height: 900px;
 	}
@@ -4159,14 +4159,14 @@ a.close-list-item {
 	.dashboard-nav.active ul li ul,
 	.dashboard-nav ul li ul {
 	    visibility: hidden;
-	    opacity: 0;
+	    opaairport: 0;
 	    max-height: 0;
 	    transition: all 0.3s;
 	}
 	
 	.dashboard-nav.active ul li.active ul {
 	    visibility: visible;
-	    opacity: 1;
+	    opaairport: 1;
 	    max-height: 300px;
 	}
 
@@ -4414,7 +4414,7 @@ a.close-list-item {
 		transform: none;
 		top: 0;
 		margin: 10px 0 0 0;
-		opacity: 1;
+		opaairport: 1;
 		right: auto;
 	}
 

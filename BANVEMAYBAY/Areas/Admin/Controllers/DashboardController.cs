@@ -1,11 +1,11 @@
-﻿using BANVEMAYBAY.Common;
+﻿using BanVeMayBay.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BANVEMAYBAY.Areas.Admin.Controllers
+namespace BanVeMayBay.Areas.Admin.Controllers
 {
     public class DashboardController : BaseController
     {

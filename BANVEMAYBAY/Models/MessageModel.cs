@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BANVEMAYBAY.Models
+namespace BanVeMayBay.Models
 {
     public class MessageModel
     {

@@ -4,26 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cf4f649cde9c4f2ea3dff70a502a6d18" Name="Diagram1">
-        <EntityTypeShape EntityType="BANVEMAYBAYModel.city" Width="1.5" PointX="12" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BANVEMAYBAYModel.country" Width="1.5" PointX="9.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="BANVEMAYBAYModel.menu" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BANVEMAYBAYModel.order" Width="1.5" PointX="14.25" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BANVEMAYBAYModel.ordersdetail" Width="1.5" PointX="16.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BANVEMAYBAYModel.post" Width="1.5" PointX="7.5" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BANVEMAYBAYModel.role" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BANVEMAYBAYModel.ticket" Width="1.5" PointX="14.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BANVEMAYBAYModel.topic" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BANVEMAYBAYModel.user" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
-        <AssociationConnector Association="BANVEMAYBAYModel.FK_city_country1" ManuallyRouted="false" />
-        <AssociationConnector Association="BANVEMAYBAYModel.FK_ticket_city" ManuallyRouted="false" />
-        <AssociationConnector Association="BANVEMAYBAYModel.FK_ticket_city1" ManuallyRouted="false" />
-        <AssociationConnector Association="BANVEMAYBAYModel.FK_menu_to_user" ManuallyRouted="false" />
-        <AssociationConnector Association="BANVEMAYBAYModel.FK_orderDetail_to_order11" ManuallyRouted="false" />
-        <AssociationConnector Association="BANVEMAYBAYModel.FK_orderDetail_to_product" ManuallyRouted="false" />
-        <AssociationConnector Association="BANVEMAYBAYModel.FK_topic_to_post1" ManuallyRouted="false" />
-        <AssociationConnector Association="BANVEMAYBAYModel.FK_user_to_role" ManuallyRouted="false" />
-        <AssociationConnector Association="BANVEMAYBAYModel.FK_topic_to_user" ManuallyRouted="false" />
+      <Diagram DiagramId="e4b32d6f358048ae8cfc38eebc0a7048" Name="Diagram1">
+        <EntityTypeShape EntityType="BanVeMayBayModel.airport" Width="1.5" PointX="12" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanVeMayBayModel.country" Width="1.5" PointX="9.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanVeMayBayModel.menu" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanVeMayBayModel.order" Width="1.5" PointX="14.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanVeMayBayModel.ordersdetail" Width="1.5" PointX="16.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanVeMayBayModel.post" Width="1.5" PointX="7.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanVeMayBayModel.role" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanVeMayBayModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanVeMayBayModel.ticket" Width="1.5" PointX="14.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanVeMayBayModel.topic" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanVeMayBayModel.user" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="BanVeMayBayModel.FK_city_country1" ManuallyRouted="false" />
+        <AssociationConnector Association="BanVeMayBayModel.FK_ticket_city" ManuallyRouted="false" />
+        <AssociationConnector Association="BanVeMayBayModel.FK_ticket_city1" ManuallyRouted="false" />
+        <AssociationConnector Association="BanVeMayBayModel.FK_menu_to_user" ManuallyRouted="false" />
+        <AssociationConnector Association="BanVeMayBayModel.FK_orderDetail_to_order11" ManuallyRouted="false" />
+        <AssociationConnector Association="BanVeMayBayModel.FK_orderDetail_to_product" ManuallyRouted="false" />
+        <AssociationConnector Association="BanVeMayBayModel.FK_topic_to_post1" ManuallyRouted="false" />
+        <AssociationConnector Association="BanVeMayBayModel.FK_user_to_role" ManuallyRouted="false" />
+        <AssociationConnector Association="BanVeMayBayModel.FK_topic_to_user" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BANVEMAYBAY.Common
+namespace BanVeMayBay.Common
 {
     public class CommonConstants
     {

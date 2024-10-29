@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BANVEMAYBAY.Models
+namespace BanVeMayBay.Models
 {
     using System;
     using System.Collections.Generic;
@@ -42,8 +42,8 @@ namespace BANVEMAYBAY.Models
         public Nullable<int> fromAirport { get; set; }
         public Nullable<int> toAirport { get; set; }
     
-        public virtual city city { get; set; }
-        public virtual city city1 { get; set; }
+        public virtual airport airport { get; set; }
+        public virtual airport airport1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ordersdetail> ordersdetails { get; set; }
     }

@@ -7,22 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BANVEMAYBAY.Models
+namespace BanVeMayBay.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class city
+    public partial class airport
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public city()
+        public airport()
         {
             this.tickets = new HashSet<ticket>();
             this.tickets1 = new HashSet<ticket>();
         }
     
-        public int cityId { get; set; }
-        public string cityName { get; set; }
+        public int airportId { get; set; }
+        public string airportName { get; set; }
         public Nullable<int> countryId { get; set; }
         public Nullable<int> status { get; set; }
     

@@ -327,7 +327,7 @@ abtn-blue:hover{
   background: url(../images/loader.gif);
   background-size: cover;
   background-position: center;
-  opacity: 1;
+  opaairport: 1;
   visibility: visible;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -1001,7 +1001,7 @@ header{
 
 #mt_banner .banner_caption_text h1{font-size: 60px; text-transform: uppercase;}
 
-#mt_banner .banner_caption_text h1 a:hover{color: #fff; opacity: 0.8;}
+#mt_banner .banner_caption_text h1 a:hover{color: #fff; opaairport: 0.8;}
 
 
 /* Slider Section */
@@ -1324,7 +1324,7 @@ td.day{
   transition: all ease-in-out 0.5s;
 }
 .destination-item:hover .destination-overlay{
-  opacity: 0.5;
+  opaairport: 0.5;
 }
 .destination-item:hover img{
   transform: scale(1.1);
@@ -1520,10 +1520,10 @@ footer{
 }
 .footer-links li a{
   color: #fff;
-  opacity: 0.8;
+  opaairport: 0.8;
 }
 .footer-links li a:hover{
-  opacity: 1;
+  opaairport: 1;
 }
 .footer-links li a i{
   padding-left: 5px;

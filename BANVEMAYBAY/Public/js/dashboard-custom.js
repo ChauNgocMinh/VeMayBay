@@ -129,7 +129,7 @@ $(document).ready(function(){
 		$( ".parallax").each(function() {
 			var attrImage = $(this).attr('data-background');
 			var attrColor = $(this).attr('data-color');
-			var attrOpacity = $(this).attr('data-color-opacity');
+			var attrOpaairport = $(this).attr('data-color-opaairport');
 			
 	        if(attrImage !== undefined) {
 	            $(this).css('background-image', 'url('+attrImage+')');
@@ -139,8 +139,8 @@ $(document).ready(function(){
 	            $(this).find(".parallax-overlay").css('background-color', ''+attrColor+'');
 	        }
 
-	        if(attrOpacity !== undefined) {
-	            $(this).find(".parallax-overlay").css('opacity', ''+attrOpacity+'');
+	        if(attrOpaairport !== undefined) {
+	            $(this).find(".parallax-overlay").css('opaairport', ''+attrOpaairport+'');
 	        }
 
 		});
@@ -211,7 +211,7 @@ $(document).ready(function(){
     $('.more-search-options-trigger').on('click', function(e){
     	e.preventDefault();
 		$('.more-search-options, .more-search-options-trigger').toggleClass('active');
-		$('.more-search-options.relative').animate({height: 'toggle', opacity: 'toggle'}, 300);
+		$('.more-search-options.relative').animate({height: 'toggle', opaairport: 'toggle'}, 300);
 	});
 
 

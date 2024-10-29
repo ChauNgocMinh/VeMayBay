@@ -385,7 +385,7 @@ a.btn-white{
   background: url(../images/loader.gif);
   background-size: cover;
   background-position: center;
-  opacity: 1;
+  opaairport: 1;
   visibility: visible;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -1205,7 +1205,7 @@ td.day{
     bottom: -5px;
     background: 50% no-repeat;
     background-size: cover;
-    opacity: .5;
+    opaairport: .5;
     -webkit-filter: blur(1.5px);
     -moz-filter: blur(1.5px);
     -ms-filter: blur(1.5px);
@@ -1260,8 +1260,8 @@ td.day{
   position: relative;
   max-width: none;
   width: calc(100% + 60px) !important;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.45s;
-  transition: opacity 0.35s, transform 0.45s;
+  -webkit-transition: opaairport 0.35s, -webkit-transform 0.45s;
+  transition: opaairport 0.35s, transform 0.45s;
   -webkit-transform: translate3d(-40px,0,0);
   transform: translate3d(-40px,0,0);
 }
@@ -1270,8 +1270,8 @@ td.day{
   transform: translateY(-5px);
 }
 .popular-packages .package-item:hover img{
-  opacity: 0.6;
-  filter: alpha(opacity=60);
+  opaairport: 0.6;
+  filter: alpha(opaairport=60);
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
@@ -1355,8 +1355,8 @@ section.popular-packages .fw-btns{
   transform: translateY(-5px);
 }
 .services .package-item:hover img{
-  opacity: 0.6;
-  filter: alpha(opacity=60);
+  opaairport: 0.6;
+  filter: alpha(opaairport=60);
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
@@ -1752,7 +1752,7 @@ section.trusted-partners{
   transition: all ease-in-out 0.3s;
 }
 .partners-logo li:hover{
-  opacity: 0.7;
+  opaairport: 0.7;
 }
 .partners-title h3{
   color: #fff;
@@ -1902,10 +1902,10 @@ footer .section-icon:after {
 }
 .footer-links li a{
   color: #fff;
-  opacity: 0.8;
+  opaairport: 0.8;
 }
 .footer-links li a:hover{
-  opacity: 1;
+  opaairport: 1;
 }
 .footer-links li a i{
   padding-left: 5px;

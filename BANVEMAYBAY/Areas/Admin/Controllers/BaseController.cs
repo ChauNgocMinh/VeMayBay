@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace BANVEMAYBAY.Areas.Admin.Controllers
+namespace BanVeMayBay.Areas.Admin.Controllers
 {
     public class BaseController : Controller
     {

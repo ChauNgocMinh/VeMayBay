@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BANVEMAYBAY.Models.ticket>
+﻿@model IEnumerable<BanVeMayBay.Models.ticket>
 
 @{
     ViewBag.Title = "Index";
@@ -59,9 +59,9 @@
                                 <td><img style="width:50px;" src="~/public/images/flight/@Html.DisplayFor(modelItem => item.airline)"></td>
                                 <td>
 
-                                    @item.city.cityName
+                                    @item.airport.airportName
                                 </td>
-                                <td width="15%">  @item.city1.cityName</td>
+                                <td width="15%">  @item.airport1.airportName</td>
                                 <td style="font-size:14px;">@item.departure_date.Value.ToString("dd/MM/yyyy")</td>
                                 <td style="font-size:14px;">@item.price.Value.ToString("N0") $</td>
                                 <td>

@@ -1,4 +1,4 @@
-﻿@model BANVEMAYBAY.Models.ticket
+﻿@model BanVeMayBay.Models.ticket
 @{
     ViewBag.Title = "flightDetail";
     Layout = "~/Views/Shared/_layOutSite.cshtml";
@@ -10,7 +10,7 @@
                 <div class="booking-confirmed booking-outer">
                     <div class="confirmation-title">
                         <div class="form-title form-title-1">
-                            <h2 class="text-danger">Chi Tiết Vé: @Model.city.cityName -> @Model.city1.cityName</h2>
+                            <h2 class="text-danger">Chi Tiết Vé: @Model.airport.airportName -> @Model.airport1.airportName</h2>
                         </div>
                         <div class="payment-info detail">
                             <div class="row">
@@ -41,11 +41,11 @@
                         </tr>
                         <tr>
                             <td class="title">Từ Ga</td>
-                            <td>@Model.city.cityName</td>
+                            <td>@Model.airport.airportName</td>
                         </tr>
                         <tr>
                             <td class="title">Đến Ga</td>
-                            <td>@Model.city1.cityName</td>
+                            <td>@Model.airport1.airportName</td>
                         </tr>
                         <tr>
                             <td class="title">Mã Chuyến Bay</td>

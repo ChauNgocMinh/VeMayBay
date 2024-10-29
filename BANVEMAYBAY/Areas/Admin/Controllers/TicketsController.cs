@@ -7,15 +7,15 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using BANVEMAYBAY.Models;
-using BANVEMAYBAY.Common;
-using BANVEMAYBAY.Models;
+using BanVeMayBay.Models;
+using BanVeMayBay.Common;
+using BanVeMayBay.Models;
 
-namespace BANVEMAYBAY.Areas.Admin.Controllers
+namespace BanVeMayBay.Areas.Admin.Controllers
 {
     public class TicketsController : BaseController
     {
-        private BANVEMAYBAYEntities db = new BANVEMAYBAYEntities();
+        private BanVeMayBayEntities db = new BanVeMayBayEntities();
 
         // GET: Admin/Tickets
         public ActionResult Index()
@@ -46,8 +46,8 @@ namespace BANVEMAYBAY.Areas.Admin.Controllers
         // GET: Admin/Tickets/Create
         public ActionResult Create()
         {
-            var cities = db.cities.ToList();
-            ViewBag.cities = cities;
+            var countries = db.countries.ToList();
+            ViewBag.countries = countries;
             return View();
         }
 
@@ -132,8 +132,8 @@ namespace BANVEMAYBAY.Areas.Admin.Controllers
         // GET: Admin/Topic/Edit/5
         public ActionResult Edit(int? id)
         {
-            var cities = db.cities.ToList();
-            ViewBag.cities = cities;
+            var countries = db.countries.ToList();
+            ViewBag.countries = countries;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -152,8 +152,8 @@ namespace BANVEMAYBAY.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ticket mticket)
         {
-            var cities = db.cities.ToList();
-            ViewBag.cities = cities;
+            var countries = db.countries.ToList();
+            ViewBag.countries = countries;
             if (ModelState.IsValid)
             {
                 HttpPostedFileBase file;
