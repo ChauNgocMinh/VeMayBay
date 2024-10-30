@@ -19,8 +19,8 @@ namespace BanVeMayBay.Areas.Admin.Controllers
         // GET: Admin/Tickets
         public ActionResult Index()
         {
-            var countries = db.countries.Where(m => m.status == 1).ToList();
-            ViewBag.countries = countries;
+            var airports = db.airports.Where(m => m.status == 1).ToList();
+            ViewBag.airports = airports;
             return View();
         }
 

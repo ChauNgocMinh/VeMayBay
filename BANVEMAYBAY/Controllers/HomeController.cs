@@ -20,8 +20,8 @@ namespace BanVeMayBay.Controllers
             ViewBag.dateNow = date_now;
             // lay cac chuyen bay trong ngay
             //var list = db..Take(20).ToList();
-            var countries = db.countries.ToList();
-            ViewBag.countries = countries;
+            var airports = db.airports.ToList();
+            ViewBag.airports = airports;
             var tickets = db.tickets.Where(m => m.status == 1 && m.departure_date == date_now2).ToList();
             ViewBag.tickets = tickets;
             return View();

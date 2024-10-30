@@ -56,7 +56,7 @@
                         <label for="psw"><span class="text-secondary font-weight-bold">Từ Ga</span></label>
                         <select  name="fromAirport" class="selectpicker form-control" tabindex="1">
 
-                            @foreach (var item in ViewBag.countries)
+                            @foreach (var item in ViewBag.airports)
                             {
                                 <option value="@item.airportId">@item.airportName</option>
                             }
@@ -68,7 +68,7 @@
                         <label for="psw"><span class="text-secondary font-weight-bold">Đến Ga</span></label>
                         <select name="toAirport" class="selectpicker form-control" tabindex="1">
 
-                            @foreach (var item in ViewBag.countries)
+                            @foreach (var item in ViewBag.airports)
                             {
                                 <option value="@item.airportId">@item.airportName</option>
                             }

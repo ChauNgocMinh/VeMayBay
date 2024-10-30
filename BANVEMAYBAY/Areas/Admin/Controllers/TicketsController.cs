@@ -46,8 +46,8 @@ namespace BanVeMayBay.Areas.Admin.Controllers
         // GET: Admin/Tickets/Create
         public ActionResult Create()
         {
-            var countries = db.countries.ToList();
-            ViewBag.countries = countries;
+            var airports = db.airports.ToList();
+            ViewBag.airports = airports;
             return View();
         }
 
