@@ -18,7 +18,7 @@ namespace BanVeMayBay.Areas.Admin.Controllers
         // GET: Admin/User
         public ActionResult Index()
         {
-            var list = db.users.Where(m => m.status != 0).OrderByDescending(m => m.ID).ToList();
+            var list = db.users.OrderByDescending(m => m.ID).ToList();
             return View(list);
         }
 

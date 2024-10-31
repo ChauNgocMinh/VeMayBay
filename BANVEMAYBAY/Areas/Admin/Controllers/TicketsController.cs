@@ -21,7 +21,7 @@ namespace BanVeMayBay.Areas.Admin.Controllers
         public ActionResult Index()
         {
             
-            var tickets = db.tickets.Where(m=>m.status == 1).ToList();
+            var tickets = db.tickets.ToList();
             ViewBag.tickets = tickets;
             
             return View();
@@ -132,8 +132,8 @@ namespace BanVeMayBay.Areas.Admin.Controllers
         // GET: Admin/Topic/Edit/5
         public ActionResult Edit(int? id)
         {
-            var countries = db.countries.ToList();
-            ViewBag.countries = countries;
+            var countries = db.airports.ToList();
+            ViewBag.airports = countries;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -158,7 +158,7 @@ namespace BanVeMayBay.Areas.Admin.Controllers
             {
                 HttpPostedFileBase file;
                 file = Request.Files["airline"];
-                string filename = file.FileName.ToString();
+                string filename = "";
                 if (filename.Equals("") == false)
                 {
                    

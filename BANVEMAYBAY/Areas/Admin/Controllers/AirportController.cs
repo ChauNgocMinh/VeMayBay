@@ -19,7 +19,7 @@ namespace BanVeMayBay.Areas.Admin.Controllers
         // GET: Admin/Tickets
         public ActionResult Index()
         {
-            var airports = db.airports.Where(m => m.status == 1).ToList();
+            var airports = db.airports.ToList();
             ViewBag.airports = airports;
             return View();
         }
@@ -69,7 +69,7 @@ namespace BanVeMayBay.Areas.Admin.Controllers
         }
 
         //GET: Admin/Tickets/Create
-        public ActionResult CreateCities()
+        public ActionResult CreateAirports()
         {
             var countries = db.countries.Where(m=>m.status == 1).ToList();
             ViewBag.countries = countries;
@@ -78,17 +78,17 @@ namespace BanVeMayBay.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateCities(country countries)
+        public ActionResult CreateAirports(airport airports)
         {
 
             if (ModelState.IsValid)
             {
-                db.countries.Add(countries);
-                Message.set_flash("Successfully added Cities", "success");
+                db.airports.Add(airports);
+                Message.set_flash("Successfully added airport", "success");
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            Message.set_flash("More failed countries", "danger");
+            Message.set_flash("More failed airports", "danger");
             return View("Create");
         }
 

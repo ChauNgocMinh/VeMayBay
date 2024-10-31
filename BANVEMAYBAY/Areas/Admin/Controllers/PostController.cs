@@ -20,7 +20,7 @@ namespace BanVeMayBay.Areas.Admin.Controllers
         // GET: Admin/Post
         public ActionResult Index()
         {
-            var list = db.posts.Where(m => m.status > 0).OrderByDescending(m=>m.ID).ToList();
+            var list = db.posts.OrderByDescending(m=>m.ID).ToList();
             return View(list);
         }
 

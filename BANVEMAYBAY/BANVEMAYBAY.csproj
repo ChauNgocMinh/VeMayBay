@@ -541,7 +541,7 @@
     <Content Include="Areas\Admin\Views\Shared\401.cshtml" />
     <Content Include="Areas\Admin\Views\Airport\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Airport\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Airport\CreateCities.cshtml" />
+    <Content Include="Areas\Admin\Views\Airport\CreateAirports.cshtml" />
     <Content Include="Areas\Admin\Views\Airport\trash.cshtml" />
     <Content Include="Areas\Admin\Views\Tickets\Edit.cshtml" />
     <Content Include="Content\bootstrap.rtl.min.css.map" />
