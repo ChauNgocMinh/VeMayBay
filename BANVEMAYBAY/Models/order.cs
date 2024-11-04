@@ -17,23 +17,24 @@ namespace BanVeMayBay.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public order()
         {
-            this.ordersdetails = new HashSet<ordersdetail>();
+            this.OrderDetails = new HashSet<OrderDetail>();
         }
     
         public int ID { get; set; }
-        public int guestTotal { get; set; }
-        public string name { get; set; }
         public Nullable<int> CusId { get; set; }
-        public string gioitinh { get; set; }
-        public string quoctich { get; set; }
-        public string mess { get; set; }
-        public string phone { get; set; }
-        public string email { get; set; }
         public double total { get; set; }
-        public System.DateTime created_ate { get; set; }
+        public System.DateTime created_at { get; set; }
         public int status { get; set; }
+        public int ticketId { get; set; }
+        public string name { get; set; }
+        public Nullable<bool> gioitinh { get; set; }
+        public string quoctich { get; set; }
+        public string note { get; set; }
+        public string email { get; set; }
+        public string phone { get; set; }
     
+        public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ordersdetail> ordersdetails { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

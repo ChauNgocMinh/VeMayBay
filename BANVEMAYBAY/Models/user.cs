@@ -19,6 +19,7 @@ namespace BanVeMayBay.Models
         {
             this.menus = new HashSet<menu>();
             this.topics = new HashSet<topic>();
+            this.orders = new HashSet<order>();
         }
     
         public int ID { get; set; }
@@ -42,5 +43,7 @@ namespace BanVeMayBay.Models
         public virtual role role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<topic> topics { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<order> orders { get; set; }
     }
 }

@@ -8,6 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace BanVeMayBay.Controllers
 {
@@ -68,12 +69,9 @@ namespace BanVeMayBay.Controllers
              Where(m => m.departure_date == ngaybay3).Where(m => m.status == 1).ToList();
                 int pageNumber = (page ?? 1);
                 return View("flightSearchReturn", list.ToPagedList(pageNumber, pageSize));
-                    
-                
             }
             else
             {
-
                 //ve 1 chieu
                 var list = db.tickets.Where(m => m.airport.airportName.Contains(noiBay) && m.airport1.airportName.Contains(noiVe)).
              Where(m => m.departure_date == ngaybay3).Where(m=>m.status==1).ToList();
@@ -150,5 +148,94 @@ namespace BanVeMayBay.Controllers
             return View("PostDetal", single);
         }
 
+        public ActionResult CreateOrder(int ticketId)
+        {
+            var ticket = db.tickets.FirstOrDefault(t => t.status == 1 && t.id == ticketId);
+            if (ticket == null)
+            {
+                return HttpNotFound("Ticket not found or invalid status.");
+            }
+
+            var userId = Session["id"] as int?;
+            if (userId == null)
+            {
+                return RedirectToAction("Login", "customer");
+            }
+
+            var order = new order
+            {
+                CusId = userId.Value,
+                total = ticket.price.HasValue ? ticket.price.Value : 0,
+                created_at = DateTime.Now,
+                status = 0,
+                OrderDetails = new List<OrderDetail>
+                {
+                    new OrderDetail
+                    {
+                        ticketId = ticket.id 
+                    }
+                }
+            };
+            return View(order);
+        }
+
+        [HttpPost]
+        public ActionResult ConfirmOrder(order model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = (int?)Session["id"];
+
+                if (!userId.HasValue)
+                {
+                    // Xử lý nếu userId không hợp lệ, ví dụ redirect đến trang đăng nhập
+                    return RedirectToAction("Login", "Account");
+                }
+
+                // Gán Id người dùng vào CusId của đơn hàng
+                model.CusId = userId.Value; // Gán giá trị Id người dùng vào CusId
+
+                model.created_at = DateTime.Now;
+                model.status = 1;
+                db.orders.Add(model);
+                db.SaveChanges();
+
+                foreach (var orderDetail in model.OrderDetails)
+                {
+                    orderDetail.orderId = model.ID;
+                    db.Entry(orderDetail).State = EntityState.Added;
+                }
+
+                db.SaveChanges();
+
+                return RedirectToAction("OrderDetail", new { id = model.ID });
+            }
+            return View("CreateOrder", model);
+        }
+
+        public ActionResult OrderDetail(int id)
+        {
+            if (Session["id"] == null)
+            {
+                return RedirectToAction("Login", "Customer");
+            }
+            int userId;
+            if (!int.TryParse(Session["id"].ToString(), out userId))
+            {
+                return RedirectToAction("Login", "Customer");
+            }
+
+            var order = db.orders
+                .Include(o => o.OrderDetails.Select(od => od.ticket))
+                .Include(o => o.OrderDetails.Select(od => od.ticket.airport))
+                .Include(o => o.OrderDetails.Select(od => od.ticket.airport1))
+                .FirstOrDefault(o => o.ID == id && o.CusId == userId);
+            if (order == null)
+            {
+                return HttpNotFound("Order not found or you do not have permission to view this order.");
+            }
+
+            return View(order);
+        }
     }
 }

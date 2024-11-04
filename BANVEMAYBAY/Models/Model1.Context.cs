@@ -28,13 +28,13 @@ namespace BanVeMayBay.Models
         public virtual DbSet<airport> airports { get; set; }
         public virtual DbSet<country> countries { get; set; }
         public virtual DbSet<menu> menus { get; set; }
-        public virtual DbSet<order> orders { get; set; }
-        public virtual DbSet<ordersdetail> ordersdetails { get; set; }
         public virtual DbSet<post> posts { get; set; }
         public virtual DbSet<role> roles { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ticket> tickets { get; set; }
         public virtual DbSet<topic> topics { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<order> orders { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
     }
 }

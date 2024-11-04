@@ -468,26 +468,26 @@
         ]
     });
 
-    $("#contactform").validate({
-        submitHandler: function () {
+    //$("#contactform").validate({
+    //    submitHandler: function () {
 
-            $.ajax({
-                url: 'mail/contact.php',
-                type: 'POST',
-                data: {
-                    name: $('input[name="full_name"]').val(),
-                    email: $('input[name="email"]').val(),
-                    phone: $('input[name="phone"]').val(),
-                    comments: $('textarea[name="comments"]').val(),
-                },
-                success: function (result) {
-                    $('#contactform-error-msg').html(result);
-                    $("#contactform")[0].reset();
-                }
-            });
+    //        $.ajax({
+    //            url: 'mail/contact.php',
+    //            type: 'POST',
+    //            data: {
+    //                name: $('input[name="full_name"]').val(),
+    //                email: $('input[name="email"]').val(),
+    //                phone: $('input[name="phone"]').val(),
+    //                comments: $('textarea[name="comments"]').val(),
+    //            },
+    //            success: function (result) {
+    //                $('#contactform-error-msg').html(result);
+    //                $("#contactform")[0].reset();
+    //            }
+    //        });
 
-        }
-    });
+    //    }
+    //});
 
 
     /**

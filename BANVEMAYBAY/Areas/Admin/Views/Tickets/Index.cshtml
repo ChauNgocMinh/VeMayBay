@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BanVeMayBay.Models.ordersdetail>
+﻿@*@model IEnumerable<BanVeMayBay.Models.ordersdetail>*@
 
 @{
     ViewBag.Title = "Index";
@@ -51,7 +51,6 @@
                     <tbody>
                     @foreach (var item in ViewBag.tickets)
                     {
-                        string name = item.name;
                         <tr>
                             <td class="text-cam">@item.id</td>
                             <td>

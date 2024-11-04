@@ -17,11 +17,10 @@ namespace BanVeMayBay.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ticket()
         {
-            this.ordersdetails = new HashSet<ordersdetail>();
+            this.OrderDetails = new HashSet<OrderDetail>();
         }
     
         public int id { get; set; }
-        public string name { get; set; }
         public string description { get; set; }
         public string flightCode { get; set; }
         public string airline { get; set; }
@@ -45,6 +44,6 @@ namespace BanVeMayBay.Models
         public virtual airport airport { get; set; }
         public virtual airport airport1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ordersdetail> ordersdetails { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

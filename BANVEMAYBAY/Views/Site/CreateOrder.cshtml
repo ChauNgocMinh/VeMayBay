@@ -1,0 +1,66 @@
+﻿@model BanVeMayBay.Models.order
+
+@{
+    ViewBag.Title = "Tạo Đơn Hàng";
+    Layout = "~/Views/Shared/_layOutSite.cshtml";
+}
+
+<section class="order-form">
+    <div class="container bg-light p-4 rounded" style="margin-top:50px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 class="text-center text-success">Thông Tin Đặt Vé</h2>
+        <hr />
+
+        <form action="@Url.Action("ConfirmOrder", "Site")" method="post">
+            @Html.HiddenFor(model => model.ticketId)
+            @Html.HiddenFor(model => model.total)
+            @Html.HiddenFor(model => model.created_at)
+            @Html.HiddenFor(model => model.status)
+
+            <div class="form-group">
+                <label for="name">Họ Tên</label>
+                @Html.TextBoxFor(model => model.name, new { @class = "form-control", required = "required", placeholder = "Nhập họ tên" })
+            </div>
+
+            <div class="form-group">
+                <label>Giới Tính</label><br />
+                <div>
+                    @Html.RadioButtonFor(model => model.gioitinh, true, new { id = "male" })
+                    <label for="male">Nam</label>
+                </div>
+                <div>
+                    @Html.RadioButtonFor(model => model.gioitinh, false, new { id = "female" })
+                    <label for="female">Nữ</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="quoctich">Quốc Tịch</label>
+                @Html.TextBoxFor(model => model.quoctich, new { @class = "form-control", required = "required", placeholder = "Nhập quốc tịch" })
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Số Điện Thoại</label>
+                @Html.TextBoxFor(model => model.phone, new { @class = "form-control", required = "required", placeholder = "Nhập số điện thoại" })
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                @Html.TextBoxFor(model => model.email, new { @class = "form-control", required = "required", type = "email", placeholder = "Nhập email" })
+            </div>
+
+            <div class="form-group">
+                <label for="note">Ghi Chú</label>
+                @Html.TextAreaFor(model => model.note, new { @class = "form-control", rows = 3, placeholder = "Nhập ghi chú nếu có" })
+            </div>
+
+            <div class="form-group">
+                <label for="total">Tổng Tiền</label>
+                <p class="form-control-static text-danger">@Model.total.ToString("N0") $</p>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Xác Nhận Đặt Vé</button>
+            </div>
+        </form>
+    </div>
+</section>

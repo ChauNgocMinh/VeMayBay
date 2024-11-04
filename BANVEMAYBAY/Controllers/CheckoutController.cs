@@ -107,57 +107,50 @@ namespace BanVeMayBay.Controllers
                 iddd = sessionUser.ID;
             }
             float total =  float.Parse(fc["total"]);
-            order.created_ate = DateTime.Now;
+            order.created_at = DateTime.Now;
             order.status = 1;
             order.total = total;
             order.CusId = iddd;
+
             db.orders.Add(order);
             db.SaveChanges();
             int lastOrderID = order.ID;
-            ordersdetail orderDetail = new ordersdetail();
             int id1 = int.Parse(fc["veOnvay"]);
-            orderDetail.ticketId = id1;
-            orderDetail.quantity = order.guestTotal;
-            orderDetail.orderid = lastOrderID;
-            db.ordersdetails.Add(orderDetail);
+            order.ticketId = id1;
             // tru so luong nghe
             var ticket = db.tickets.Find(id1);
-            ticket.Sold = ticket.Sold + order.guestTotal;
             db.Entry(ticket).State = EntityState.Modified;
             db.SaveChanges();
-            //neu ton tai ve 2 chieu
-            if (!string.IsNullOrEmpty(fc["veReturn"]))
-            {
-                int id2 = int.Parse(fc["veReturn"]);
-                ordersdetail orderDetail2 = new ordersdetail();
-                orderDetail2.ticketId = id2;
-                orderDetail2.orderid = lastOrderID;
-                orderDetail2.quantity = order.guestTotal;
-                db.ordersdetails.Add(orderDetail2);
-                // tru so luong nghe
-                var ticket2 = db.tickets.Find(id2);
-                ticket2.Sold = ticket2.Sold + order.guestTotal;
-                db.Entry(ticket2).State = EntityState.Modified;
-                db.SaveChanges();
-            }
-          
-            
-           
+            ////neu ton tai ve 2 chieu
+            //if (!string.IsNullOrEmpty(fc["veReturn"]))
+            //{
+            //    int id2 = int.Parse(fc["veReturn"]);
+            //    ordersdetail orderDetail2 = new ordersdetail();
+            //    orderDetail2.ticketId = id2;
+            //    orderDetail2.orderid = lastOrderID;
+            //    orderDetail2.quantity = order.guestTotal;
+            //    db.ordersdetails.Add(orderDetail2);
+            //    // tru so luong nghe
+            //    var ticket2 = db.tickets.Find(id2);
+            //    ticket2.Sold = ticket2.Sold + order.guestTotal;
+            //    db.Entry(ticket2).State = EntityState.Modified;
+            //    db.SaveChanges();
+            //}
             return View("checkOutComfin", order);
         }
         // lay thong tin cac ve da book
-        public ActionResult _BookingConnfig(int orderId)
-        {
-            var list = db.ordersdetails.Where(m => m.orderid == orderId).ToList();
-            var list1 = new List<ticket>();
-            foreach (var item in list)
-            {
-                ticket ticket = db.tickets.Find(item.ticketId);
-                list1.Add(ticket);
-            }
+        //public ActionResult _BookingConnfig(int orderId)
+        //{
+        //    var list = db.ordersdetails.Where(m => m.orderid == orderId).ToList();
+        //    var list1 = new List<ticket>();
+        //    foreach (var item in list)
+        //    {
+        //        ticket ticket = db.tickets.Find(item.ticketId);
+        //        list1.Add(ticket);
+        //    }
 
-            return View("_BookingConnfig", list1.ToList());
-        }
+        //    return View("_BookingConnfig", list1.ToList());
+        //}
         
     }
 }

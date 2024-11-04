@@ -6270,7 +6270,7 @@ function () {
     this.options = context.options;
     this.lang = this.options.langInfo;
     this.documentEventHandlers = {};
-    this.$dropzone = external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(['<div class="note-dropzone">', '<div class="note-dropzone-message"/>', '</div>'].join('')).prependTo(this.$editor);
+    this.$dropzone = external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(['<div class="note-dropzone">', '<div class="note-dropzone-noteage"/>', '</div>'].join('')).prependTo(this.$editor);
   }
   /**
    * attach Drag and Drop Events
@@ -6303,7 +6303,7 @@ function () {
       var _this = this;
 
       var collection = external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()();
-      var $dropzoneMessage = this.$dropzone.find('.note-dropzone-message');
+      var $dropzoneMessage = this.$dropzone.find('.note-dropzone-noteage');
 
       this.documentEventHandlers.onDragenter = function (e) {
         var isCodeview = _this.context.invoke('codeview.isActivated');
@@ -6341,7 +6341,7 @@ function () {
       // -but only if the editor is visible, i.e. has a positive width and height
 
 
-      this.$eventListener.on('dragenter', this.documentEventHandlers.onDragenter).on('dragleave', this.documentEventHandlers.onDragleave).on('drop', this.documentEventHandlers.onDrop); // change dropzone's message on hover.
+      this.$eventListener.on('dragenter', this.documentEventHandlers.onDragenter).on('dragleave', this.documentEventHandlers.onDragleave).on('drop', this.documentEventHandlers.onDrop); // change dropzone's noteage on hover.
 
       this.$dropzone.on('dragenter', function () {
         _this.$dropzone.addClass('hover');

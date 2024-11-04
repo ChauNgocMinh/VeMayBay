@@ -6206,12 +6206,12 @@ $.extend( $.ui.autocomplete, {
 	}
 } );
 
-// Live region extension, adding a `messages` option
+// Live region extension, adding a `noteages` option
 // NOTE: This is an experimental API. We are still investigating
 // a full solution for string manipulation and internationalization.
 $.widget( "ui.autocomplete", $.ui.autocomplete, {
 	options: {
-		messages: {
+		noteages: {
 			noResults: "No search results.",
 			results: function( amount ) {
 				return amount + ( amount > 1 ? " results are" : " result is" ) +
@@ -6221,18 +6221,18 @@ $.widget( "ui.autocomplete", $.ui.autocomplete, {
 	},
 
 	__response: function( content ) {
-		var message;
+		var noteage;
 		this._superApply( arguments );
 		if ( this.options.disabled || this.cancelSearch ) {
 			return;
 		}
 		if ( content && content.length ) {
-			message = this.options.messages.results( content.length );
+			noteage = this.options.noteages.results( content.length );
 		} else {
-			message = this.options.messages.noResults;
+			noteage = this.options.noteages.noResults;
 		}
 		this.liveRegion.children().hide();
-		$( "<div>" ).text( message ).appendTo( this.liveRegion );
+		$( "<div>" ).text( noteage ).appendTo( this.liveRegion );
 	}
 } );
 
@@ -9317,7 +9317,7 @@ var widgetsMouse = $.widget( "ui.mouse", {
 		this.started = false;
 	},
 
-	// TODO: make sure destroying one instance of mouse doesn't mess with
+	// TODO: make sure destroying one instance of mouse doesn't note with
 	// other instances of mouse
 	_mouseDestroy: function() {
 		this.element.off( "." + this.widgetName );

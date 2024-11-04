@@ -1,0 +1,82 @@
+﻿@model BanVeMayBay.Models.order
+
+@{
+    ViewBag.Title = "Chi Tiết Đơn Hàng";
+    Layout = "~/Views/Shared/_layOutSite.cshtml";
+}
+
+<style>
+    .order-detail {
+        margin-top: 50px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        .order-detail h2 {
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        .order-detail h5 {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #007bff; /* Màu xanh Bootstrap */
+        }
+
+        .order-detail p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .order-detail .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            font-weight: bold;
+        }
+
+            .order-detail .btn-secondary:hover {
+                background-color: #5a6268; /* Màu khi hover */
+            }
+
+        .order-detail .container {
+            background-color: #f8f9fa; /* Màu nền nhạt */
+            border-radius: 10px;
+            padding: 30px;
+        }
+</style>
+
+<section class="order-detail">
+    <div class="container p-4 rounded">
+        <h2 class="text-center text-success">Chi Tiết Đơn Hàng</h2>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-12">
+                <h5><strong>Thông Tin Khách Hàng</strong></h5>
+                <p><strong>Họ Tên:</strong> @Model.name</p>
+                <p><strong>Giới Tính:</strong> @(Model.gioitinh.HasValue ? (Model.gioitinh.Value ? "Nam" : "Nữ") : "Chưa xác định")</p>
+                <p><strong>Quốc Tịch:</strong> @Model.quoctich</p>
+                <p><strong>Số Điện Thoại:</strong> @Model.phone</p>
+                <p><strong>Email:</strong> @Model.email</p>
+                <p><strong>Ghi Chú:</strong> @Model.note</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h5><strong>Thông Tin Vé</strong></h5>
+                <p><strong>Mã Chuyến Bay:</strong> @ViewBag.FlightCode</p>
+                <p><strong>Hãng Hàng Không:</strong> @ViewBag.Airline</p>
+                <p><strong>Sân Bay Đi:</strong> @ViewBag.AirportName</p>
+                <p><strong>Sân Bay Đến:</strong> @ViewBag.Airport1Name</p>
+                <p><strong>Tổng Tiền:</strong> @Model.total.ToString("N0") $</p>
+                <p><strong>Ngày Đặt:</strong> @Model.created_at.ToString("dd/MM/yyyy HH:mm")</p>
+                <p><strong>Trạng Thái:</strong> @(Model.status == 1 ? "Đã xác nhận" : "Chưa xác nhận")</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="@Url.Action("Index", "Site")" class="btn btn-secondary">Quay Lại</a>
+        </div>
+    </div>
+</section>

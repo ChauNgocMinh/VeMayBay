@@ -168,47 +168,47 @@ namespace BanVeMayBay.Controllers
             var sigleOrder = db.orders.Find(id);
             return View("orderDetailCus", sigleOrder);
         }
-        public ActionResult canelOrder(int OrderId)
-        {
+        //public ActionResult canelOrder(int OrderId)
+        //{
            
 
-            order morder = db.orders.Find(OrderId);
-            var orderDetail = db.ordersdetails.Where(m => m.orderid == morder.ID).ToList();
-            foreach (var item in orderDetail)
-            {
-                var id = int.Parse(item.ticketId.ToString());
-                ticket ticket = db.tickets.Find(id);
-                DateTime ngaymuon = Convert.ToDateTime(
-                    morder.created_ate);
-                DateTime ngaytra = Convert.ToDateTime(ticket.departure_date);
-                TimeSpan Time = ngaytra - ngaymuon;
-                int TongSoNgay = Time.Days;
-               if(TongSoNgay >= 14)
-                {
-                    ticket.Sold = ticket.Sold - item.quantity;
-                    db.Entry(ticket).State = EntityState.Modified;
-                    db.SaveChanges();
-                    if (item == null)
-                    {
-                        Message.set_flash("Error Cancel Order", "danger");
-                        return Redirect("~/tai-khoan");
-                    }
-                    db.ordersdetails.Remove(item);
-                    db.SaveChanges();
-                }
-                else
-                {
-                    Message.set_flash("Tickets cannot be canceled 14 days before flight date", "dangger");
-                    return Redirect("~/tai-khoan");
-                }
+        //    order morder = db.orders.Find(OrderId);
+        //    var orderDetail = db.ordersdetails.Where(m => m.orderid == morder.ID).ToList();
+        //    foreach (var item in orderDetail)
+        //    {
+        //        var id = int.Parse(item.ticketId.ToString());
+        //        ticket ticket = db.tickets.Find(id);
+        //        DateTime ngaymuon = Convert.ToDateTime(
+        //            morder.created_at);
+        //        DateTime ngaytra = Convert.ToDateTime(ticket.departure_date);
+        //        TimeSpan Time = ngaytra - ngaymuon;
+        //        int TongSoNgay = Time.Days;
+        //       if(TongSoNgay >= 14)
+        //        {
+        //            ticket.Sold = ticket.Sold - item.quantity;
+        //            db.Entry(ticket).State = EntityState.Modified;
+        //            db.SaveChanges();
+        //            if (item == null)
+        //            {
+        //                Message.set_flash("Error Cancel Order", "danger");
+        //                return Redirect("~/tai-khoan");
+        //            }
+        //            db.ordersdetails.Remove(item);
+        //            db.SaveChanges();
+        //        }
+        //        else
+        //        {
+        //            Message.set_flash("Tickets cannot be canceled 14 days before flight date", "dangger");
+        //            return Redirect("~/tai-khoan");
+        //        }
                 
                
-            }
+        //    }
                   
-            db.orders.Remove(morder);
-            db.SaveChanges();
-            Message.set_flash("Canceled 1 order", "success");
-            return Redirect("~/tai-khoan");
-        }
+        //    db.orders.Remove(morder);
+        //    db.SaveChanges();
+        //    Message.set_flash("Canceled 1 order", "success");
+        //    return Redirect("~/tai-khoan");
+        //}
     }
 }

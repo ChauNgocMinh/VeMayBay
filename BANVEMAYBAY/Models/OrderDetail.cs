@@ -12,12 +12,11 @@ namespace BanVeMayBay.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ordersdetail
+    public partial class OrderDetail
     {
-        public int ID { get; set; }
-        public int orderid { get; set; }
+        public int Id { get; set; }
+        public int orderId { get; set; }
         public int ticketId { get; set; }
-        public int quantity { get; set; }
     
         public virtual order order { get; set; }
         public virtual ticket ticket { get; set; }

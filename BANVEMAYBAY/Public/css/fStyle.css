@@ -92,19 +92,19 @@
     overflow-y: auto;
 }
 
-.ajs-message.ajs-success {
+.ajs-noteage.ajs-success {
     color: #000 !important;
     background-color: #d9ecda !important;
     border-color: #26852b !important;
     text-shadow: none !important;
 }
-.ajs-message.ajs-error {
+.ajs-noteage.ajs-error {
     color: #000 !important;
     background-color: #F78181 !important;
     border-color: #FF0000 !important;
     text-shadow: none !important;
 }
-.ajs-message.ajs-warning {
+.ajs-noteage.ajs-warning {
     color: #000 !important;
     background-color: #F3F781 !important;
     border-color: #FFFF00 !important;

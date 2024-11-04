@@ -2892,7 +2892,7 @@ span.like-icon {
 
 /* Navigation Scrolling */
 
-.messages-container-inner .messages-inbox ul::-webkit-scrollbar { width: 17px; }
+.noteages-container-inner .noteages-inbox ul::-webkit-scrollbar { width: 17px; }
 
 @media (max-width: 991px) {
 	.dashboard-nav-inner {
@@ -3037,8 +3037,8 @@ a.dashboard-responsive-nav-trigger { display: none; }
 	margin-left: 4px;
 }
 
-.dashboard-nav ul li span.nav-tag.messages {top: -2px; position: relative; }
-.dashboard-nav ul li span.nav-tag.messages,
+.dashboard-nav ul li span.nav-tag.noteages {top: -2px; position: relative; }
+.dashboard-nav ul li span.nav-tag.noteages,
 .dashboard-nav ul li span.nav-tag.green { background-color: #64bc36; }
 .dashboard-nav ul li span.nav-tag.yellow { background-color: #b9be1c; }
 .dashboard-nav ul li span.nav-tag.red { background-color: #ee3535; }
@@ -4212,9 +4212,9 @@ a.close-list-item {
 		border-radius: 4px 4px 0 0;
 	}
 
-	.messages-container-inner { display: block;}
+	.noteages-container-inner { display: block;}
 
-	.messages-container-inner .messages-inbox {
+	.noteages-container-inner .noteages-inbox {
 	    max-width: 100%;
 	    width: 100%;
 	    border-right: none;
@@ -4568,9 +4568,9 @@ a.close-list-item {
 		-moz-columns: 1;
 	}
 	
-	.messages-headline h4 { display: block; }
+	.noteages-headline h4 { display: block; }
 
-	.message-action {
+	.noteage-action {
 	    display: inline-block;
 	    float: none;
 	    margin-top: 15px;
@@ -4580,10 +4580,10 @@ a.close-list-item {
 	    text-align: center;
 	}
 
-	.message-bubble .message-text { margin-left: 55px; }
-	.message-bubble.me .message-text { margin-right: 55px; }
+	.noteage-bubble .noteage-text { margin-left: 55px; }
+	.noteage-bubble.me .noteage-text { margin-right: 55px; }
 
-	.message-bubble .message-avatar img{
+	.noteage-bubble .noteage-avatar img{
 		width: 35px;
 		height: 35px;
 		margin-top: 8px;

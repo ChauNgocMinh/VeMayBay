@@ -306,11 +306,11 @@ $(document).ready(function(){
 
     // Dashbaord Messages Alignment
 	$(window).on('load resize', function() {
-		var msgContentHeight = $(".message-content").outerHeight();
-		var msgInboxHeight = $(".messages-inbox ul").height();
+		var msgContentHeight = $(".noteage-content").outerHeight();
+		var msgInboxHeight = $(".noteages-inbox ul").height();
 		
 		if( msgContentHeight > msgInboxHeight ){
-			$(".messages-container-inner .messages-inbox ul").css('max-height', msgContentHeight)
+			$(".noteages-container-inner .noteages-inbox ul").css('max-height', msgContentHeight)
 		}
 	});
 
