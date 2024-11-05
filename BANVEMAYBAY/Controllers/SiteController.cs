@@ -188,24 +188,30 @@ namespace BanVeMayBay.Controllers
             {
                 return View("CreateOrder", model);
             }
+
             var userId = (int?)Session["id"];
             if (!userId.HasValue)
             {
                 return RedirectToAction("Login", "Customer");
             }
+
             model.CusId = userId.Value;
             model.created_at = DateTime.Now;
             model.status = 1;
-            db.orders.Add(model);
+
             foreach (var orderDetail in model.OrderDetails)
             {
-                orderDetail.orderId = model.ID; 
-                db.OrderDetails.Add(orderDetail);
+                orderDetail.orderId = model.ID;
+                var existingTicket = db.tickets.Find(orderDetail.ticketId);
+
+                orderDetail.ticketId = orderDetail.ticketId; 
+                orderDetail.ticket = existingTicket;
+                //db.OrderDetails.Add(orderDetail);
             }
-            db.SaveChanges(); 
+            db.orders.Add(model);
+            db.SaveChanges();
             return RedirectToAction("OrderDetail", new { id = model.ID });
         }
-
 
         public ActionResult OrderDetail(int id)
         {
