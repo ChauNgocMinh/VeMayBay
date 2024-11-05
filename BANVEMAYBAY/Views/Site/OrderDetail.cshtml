@@ -14,39 +14,44 @@
         padding: 30px;
     }
 
-    .order-detail h2 {
-        margin-bottom: 25px;
-        font-weight: 700;
-        color: #28a745;
-    }
+        .order-detail h2 {
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #28a745;
+            font-size: 4rem;
+        }
 
-    .order-detail h5 {
-        margin-top: 25px;
-        font-weight: bold;
-        color: #007bff;
-    }
+        .order-detail h5 {
+            margin-top: 25px;
+            font-weight: bold;
+            color: #007bff;
+            font-size: 2.5rem;
+        }
 
-    .order-detail p {
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-    }
+        .order-detail p {
+            font-size: 2rem; 
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
 
-    .order-detail .container {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 8px;
-    }
+        .order-detail .container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
 
-    .order-detail .btn-secondary {
-        background-color: #6c757d;
-        border: none;
-        font-weight: bold;
-        color: #fff;
-    }
+        .order-detail .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            font-weight: bold;
+            color: #fff;
+            padding: 10px 20px; /* Added padding for better button size */
+            font-size: 1.2rem; /* Increased button font size */
+        }
 
-    .order-detail .btn-secondary:hover {
-        background-color: #5a6268;
-    }
+            .order-detail .btn-secondary:hover {
+                background-color: #5a6268;
+            }
 
     .text-success {
         font-weight: 700;
@@ -54,7 +59,7 @@
 
     .ticket-info {
         margin-top: 20px;
-        padding: 15px;
+        padding: 20px; /* Increased padding */
         border: 1px solid #dee2e6;
         border-radius: 8px;
         background-color: #e9ecef;
@@ -70,7 +75,9 @@
 
     .ticket-title {
         font-weight: bold;
-        font-size: 1.2rem;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
     }
 </style>
 
@@ -100,24 +107,24 @@
                     <p><strong>Hãng Hàng Không:</strong> @ViewBag.Airline</p>
                     <p><strong>Sân Bay Đi:</strong> @ViewBag.AirportName</p>
                     <p><strong>Sân Bay Đến:</strong> @ViewBag.Airport1Name</p>
-                    <p><strong>Tổng Tiền:</strong> @Model.total?.ToString("N0") ?? "0" $</p>
-                    <p><strong>Ngày Đặt:</strong> @Model.created_at?.ToString("dd/MM/yyyy HH:mm") ?? "N/A"</p>
+                    <p><strong>Tổng Tiền:</strong> @Model.total.ToString("N0") $</p>
+                    <p><strong>Ngày Đặt:</strong> @(Model.created_at != null ? Model.created_at.ToString("dd/MM/yyyy HH:mm") : "N/A")</p>
                     <p><strong>Trạng Thái:</strong> @(Model.status == 1 ? "Đã xác nhận" : "Chưa xác nhận")</p>
                 </div>
 
                 @*@if (Model.IsRoundTrip) // Assuming you have a property to determine if it's round trip
-                {
-                    <div class="ticket-info round-trip mt-3">
-                        <div class="ticket-title">Vé Khứ Hồi</div>
-                        <p><strong>Mã Chuyến Bay Khứ Hồi:</strong> @ViewBag.ReturnFlightCode</p>
-                        <p><strong>Hãng Hàng Không Khứ Hồi:</strong> @ViewBag.ReturnAirline</p>
-                        <p><strong>Sân Bay Đi:</strong> @ViewBag.ReturnAirportName</p>
-                        <p><strong>Sân Bay Đến:</strong> @ViewBag.ReturnAirport1Name</p>
-                        <p><strong>Tổng Tiền Khứ Hồi:</strong> @Model.returnTotal?.ToString("N0") ?? "0" $</p>
-                        <p><strong>Ngày Đặt Khứ Hồi:</strong> @Model.returnDate?.ToString("dd/MM/yyyy HH:mm") ?? "N/A"</p>
-                        <p><strong>Trạng Thái Khứ Hồi:</strong> @(Model.returnStatus == 1 ? "Đã xác nhận" : "Chưa xác nhận")</p>
-                    </div>
-                }*@
+                    {
+                        <div class="ticket-info round-trip mt-3">
+                            <div class="ticket-title">Vé Khứ Hồi</div>
+                            <p><strong>Mã Chuyến Bay Khứ Hồi:</strong> @ViewBag.ReturnFlightCode</p>
+                            <p><strong>Hãng Hàng Không Khứ Hồi:</strong> @ViewBag.ReturnAirline</p>
+                            <p><strong>Sân Bay Đi:</strong> @ViewBag.ReturnAirportName</p>
+                            <p><strong>Sân Bay Đến:</strong> @ViewBag.ReturnAirport1Name</p>
+                            <p><strong>Tổng Tiền Khứ Hồi:</strong> @Model.returnTotal?.ToString("N0") ?? "0" $</p>
+                            <p><strong>Ngày Đặt Khứ Hồi:</strong> @Model.returnDate?.ToString("dd/MM/yyyy HH:mm") ?? "N/A"</p>
+                            <p><strong>Trạng Thái Khứ Hồi:</strong> @(Model.returnStatus == 1 ? "Đã xác nhận" : "Chưa xác nhận")</p>
+                        </div>
+                    }*@
             </div>
         </div>
 

@@ -9,11 +9,11 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Ticket Code</th>
-                                <th>Passenger</th>
-                                <th>Booking Date</th>
-                                <th>Detail</th>
-                                <th>Total</th>
+                                <th>Id</th>
+                                <th>Tên hành khác</th>
+                                <th>Ngày đặt vé</th>
+                                <th>Xem chi tiết</th>
+                                <th>Tồng tiền</th>
 
                             </tr>
                         </thead>
@@ -34,7 +34,7 @@
                                     <p>@item.created_at.ToString("dd-MM-yyyy HH:mm tt")</p>
                                 </td>
                                 <td>
-                                    <p><strong class="color-red-3"><a href="~/chi-tiet-order/@item.ID">Detail Order</a></strong></p>
+                                    <p><strong class="color-red-3"><a href="~/site/orderdetail/@item.ID">Chi tiết mua hàng</a></strong></p>
 
                                 </td>
                                 <td>
