@@ -11,7 +11,6 @@
         <hr />
 
         <form action="@Url.Action("ConfirmOrder", "Site")" method="post">
-            @Html.HiddenFor(model => model.ticketId)
             @Html.HiddenFor(model => model.total)
             @Html.HiddenFor(model => model.created_at)
             @Html.HiddenFor(model => model.status)
@@ -57,6 +56,31 @@
                 <label for="total">Tổng Tiền</label>
                 <p class="form-control-static text-danger">@Model.total.ToString("N0") $</p>
             </div>
+
+            <h4>Thông Tin Chi Tiết Đơn Hàng:</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>Giá Vé</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.OrderDetails.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @Html.HiddenFor(m => m.OrderDetails[i].ticketId)
+                                @Model.OrderDetails[i].ticketId
+                            </td>
+                            <td>
+                                @Html.HiddenFor(m => m.OrderDetails[i].ticket.price)
+                                @Html.DisplayFor(m => m.OrderDetails[i].ticket.price)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
 
             <div class="text-center mt-4">
                 <button type="submit" class="btn btn-primary btn-lg">Xác Nhận Đặt Vé</button>

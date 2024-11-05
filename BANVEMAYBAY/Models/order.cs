@@ -17,7 +17,7 @@ namespace BanVeMayBay.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public order()
         {
-            this.OrderDetails = new HashSet<OrderDetail>();
+            this.OrderDetails = new List<OrderDetail>();
         }
     
         public int ID { get; set; }
@@ -35,6 +35,6 @@ namespace BanVeMayBay.Models
     
         public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual List<OrderDetail> OrderDetails { get; set; }
     }
 }

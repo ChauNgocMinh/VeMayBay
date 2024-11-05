@@ -8,51 +8,80 @@
 <style>
     .order-detail {
         margin-top: 50px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background-color: #ffffff;
+        padding: 30px;
     }
 
-        .order-detail h2 {
-            margin-bottom: 20px;
-            font-weight: bold;
-            font-size: 2rem;
-        }
+    .order-detail h2 {
+        margin-bottom: 25px;
+        font-weight: 700;
+        color: #28a745;
+    }
 
-        .order-detail h5 {
-            margin-top: 20px;
-            font-weight: bold;
-            color: #007bff; /* Màu xanh Bootstrap */
-        }
+    .order-detail h5 {
+        margin-top: 25px;
+        font-weight: bold;
+        color: #007bff;
+    }
 
-        .order-detail p {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
+    .order-detail p {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
 
-        .order-detail .btn-secondary {
-            background-color: #6c757d;
-            border: none;
-            font-weight: bold;
-        }
+    .order-detail .container {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+    }
 
-            .order-detail .btn-secondary:hover {
-                background-color: #5a6268; /* Màu khi hover */
-            }
+    .order-detail .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+        font-weight: bold;
+        color: #fff;
+    }
 
-        .order-detail .container {
-            background-color: #f8f9fa; /* Màu nền nhạt */
-            border-radius: 10px;
-            padding: 30px;
-        }
+    .order-detail .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+
+    .text-success {
+        font-weight: 700;
+    }
+
+    .ticket-info {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        background-color: #e9ecef;
+    }
+
+    .round-trip {
+        border-left: 5px solid #007bff;
+    }
+
+    .one-way {
+        border-left: 5px solid #28a745;
+    }
+
+    .ticket-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
 </style>
 
 <section class="order-detail">
-    <div class="container p-4 rounded">
-        <h2 class="text-center text-success">Chi Tiết Đơn Hàng</h2>
+    <div class="container">
+        <h2 class="text-center">Chi Tiết Đơn Hàng</h2>
         <hr />
 
         <div class="row">
             <div class="col-md-12">
-                <h5><strong>Thông Tin Khách Hàng</strong></h5>
+                <h5>Thông Tin Khách Hàng</h5>
                 <p><strong>Họ Tên:</strong> @Model.name</p>
                 <p><strong>Giới Tính:</strong> @(Model.gioitinh.HasValue ? (Model.gioitinh.Value ? "Nam" : "Nữ") : "Chưa xác định")</p>
                 <p><strong>Quốc Tịch:</strong> @Model.quoctich</p>
@@ -62,20 +91,37 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-md-12">
-                <h5><strong>Thông Tin Vé</strong></h5>
-                <p><strong>Mã Chuyến Bay:</strong> @ViewBag.FlightCode</p>
-                <p><strong>Hãng Hàng Không:</strong> @ViewBag.Airline</p>
-                <p><strong>Sân Bay Đi:</strong> @ViewBag.AirportName</p>
-                <p><strong>Sân Bay Đến:</strong> @ViewBag.Airport1Name</p>
-                <p><strong>Tổng Tiền:</strong> @Model.total.ToString("N0") $</p>
-                <p><strong>Ngày Đặt:</strong> @Model.created_at.ToString("dd/MM/yyyy HH:mm")</p>
-                <p><strong>Trạng Thái:</strong> @(Model.status == 1 ? "Đã xác nhận" : "Chưa xác nhận")</p>
+                <h5>Thông Tin Vé</h5>
+                <div class="ticket-info one-way">
+                    <div class="ticket-title">Vé Một Chiều</div>
+                    <p><strong>Mã Chuyến Bay:</strong> @ViewBag.FlightCode</p>
+                    <p><strong>Hãng Hàng Không:</strong> @ViewBag.Airline</p>
+                    <p><strong>Sân Bay Đi:</strong> @ViewBag.AirportName</p>
+                    <p><strong>Sân Bay Đến:</strong> @ViewBag.Airport1Name</p>
+                    <p><strong>Tổng Tiền:</strong> @Model.total?.ToString("N0") ?? "0" $</p>
+                    <p><strong>Ngày Đặt:</strong> @Model.created_at?.ToString("dd/MM/yyyy HH:mm") ?? "N/A"</p>
+                    <p><strong>Trạng Thái:</strong> @(Model.status == 1 ? "Đã xác nhận" : "Chưa xác nhận")</p>
+                </div>
+
+                @*@if (Model.IsRoundTrip) // Assuming you have a property to determine if it's round trip
+                {
+                    <div class="ticket-info round-trip mt-3">
+                        <div class="ticket-title">Vé Khứ Hồi</div>
+                        <p><strong>Mã Chuyến Bay Khứ Hồi:</strong> @ViewBag.ReturnFlightCode</p>
+                        <p><strong>Hãng Hàng Không Khứ Hồi:</strong> @ViewBag.ReturnAirline</p>
+                        <p><strong>Sân Bay Đi:</strong> @ViewBag.ReturnAirportName</p>
+                        <p><strong>Sân Bay Đến:</strong> @ViewBag.ReturnAirport1Name</p>
+                        <p><strong>Tổng Tiền Khứ Hồi:</strong> @Model.returnTotal?.ToString("N0") ?? "0" $</p>
+                        <p><strong>Ngày Đặt Khứ Hồi:</strong> @Model.returnDate?.ToString("dd/MM/yyyy HH:mm") ?? "N/A"</p>
+                        <p><strong>Trạng Thái Khứ Hồi:</strong> @(Model.returnStatus == 1 ? "Đã xác nhận" : "Chưa xác nhận")</p>
+                    </div>
+                }*@
             </div>
         </div>
 
-        <div class="text-center mt-4">
+        <div class="text-center mt-5">
             <a href="@Url.Action("Index", "Site")" class="btn btn-secondary">Quay Lại</a>
         </div>
     </div>

@@ -137,7 +137,7 @@ namespace BanVeMayBay.Controllers
             return View("PostDetal", single);
         }
         
-            public ActionResult flightDetail(int id)
+        public ActionResult flightDetail(int id)
         {
             var single = db.tickets.Where(m => m.status == 1 && m.id == id).First();
             return View("flightDetail", single);
@@ -157,70 +157,60 @@ namespace BanVeMayBay.Controllers
             }
 
             var userId = Session["id"] as int?;
-            if (userId == null)
+            if (!userId.HasValue)
             {
-                return RedirectToAction("Login", "customer");
+                return RedirectToAction("Login", "Customer");
             }
 
             var order = new order
             {
                 CusId = userId.Value,
-                total = ticket.price.HasValue ? ticket.price.Value : 0,
+                total = ticket.price ?? 0,
                 created_at = DateTime.Now,
                 status = 0,
+                ticketId = ticket.id,
                 OrderDetails = new List<OrderDetail>
                 {
                     new OrderDetail
                     {
-                        ticketId = ticket.id 
+                        ticketId = ticket.id
                     }
                 }
             };
             return View(order);
         }
 
+
         [HttpPost]
         public ActionResult ConfirmOrder(order model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var userId = (int?)Session["id"];
-
-                if (!userId.HasValue)
-                {
-                    // Xử lý nếu userId không hợp lệ, ví dụ redirect đến trang đăng nhập
-                    return RedirectToAction("Login", "Account");
-                }
-
-                // Gán Id người dùng vào CusId của đơn hàng
-                model.CusId = userId.Value; // Gán giá trị Id người dùng vào CusId
-
-                model.created_at = DateTime.Now;
-                model.status = 1;
-                db.orders.Add(model);
-                db.SaveChanges();
-
-                foreach (var orderDetail in model.OrderDetails)
-                {
-                    orderDetail.orderId = model.ID;
-                    db.Entry(orderDetail).State = EntityState.Added;
-                }
-
-                db.SaveChanges();
-
-                return RedirectToAction("OrderDetail", new { id = model.ID });
+                return View("CreateOrder", model);
             }
-            return View("CreateOrder", model);
-        }
-
-        public ActionResult OrderDetail(int id)
-        {
-            if (Session["id"] == null)
+            var userId = (int?)Session["id"];
+            if (!userId.HasValue)
             {
                 return RedirectToAction("Login", "Customer");
             }
-            int userId;
-            if (!int.TryParse(Session["id"].ToString(), out userId))
+            model.CusId = userId.Value;
+            model.created_at = DateTime.Now;
+            model.status = 1;
+            db.orders.Add(model);
+            foreach (var orderDetail in model.OrderDetails)
+            {
+                orderDetail.orderId = model.ID; 
+                db.OrderDetails.Add(orderDetail);
+            }
+            db.SaveChanges(); 
+            return RedirectToAction("OrderDetail", new { id = model.ID });
+        }
+
+
+
+        public ActionResult OrderDetail(int id)
+        {
+            if (Session["id"] == null || !int.TryParse(Session["id"].ToString(), out int userId))
             {
                 return RedirectToAction("Login", "Customer");
             }
@@ -230,12 +220,19 @@ namespace BanVeMayBay.Controllers
                 .Include(o => o.OrderDetails.Select(od => od.ticket.airport))
                 .Include(o => o.OrderDetails.Select(od => od.ticket.airport1))
                 .FirstOrDefault(o => o.ID == id && o.CusId == userId);
+
             if (order == null)
             {
                 return HttpNotFound("Order not found or you do not have permission to view this order.");
             }
 
+            ViewBag.FlightCode = order.OrderDetails.FirstOrDefault()?.ticket?.flightCode ?? "N/A";
+            ViewBag.Airline = order.OrderDetails.FirstOrDefault()?.ticket?.airline ?? "N/A";
+            ViewBag.AirportName = order.OrderDetails.FirstOrDefault()?.ticket?.airport?.airportName ?? "N/A";
+            ViewBag.Airport1Name = order.OrderDetails.FirstOrDefault()?.ticket?.airport1?.airportName ?? "N/A";
+
             return View(order);
         }
+
     }
 }
