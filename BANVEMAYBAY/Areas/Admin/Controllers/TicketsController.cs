@@ -21,7 +21,7 @@ namespace BanVeMayBay.Areas.Admin.Controllers
         public ActionResult Index()
         {
             
-            var tickets = db.tickets.ToList();
+            var tickets = db.tickets.Include(x => x.airport).ToList();
             ViewBag.tickets = tickets;
             
             return View();

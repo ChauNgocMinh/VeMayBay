@@ -1,0 +1,97 @@
+﻿@model BanVeMayBay.Models.order
+
+@{
+    ViewBag.Title = "Chi Tiết Đơn Hàng";
+    Layout = "~/Views/Shared/_layOutSite.cshtml";
+}
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7fc;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .qr-code-container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 30px 0;
+    }
+
+        .qr-code-container h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .qr-code-container img {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+    .payment-info {
+        font-size: 1.25rem;
+        color: #555;
+        margin-top: 20px;
+    }
+
+        .payment-info p {
+            margin: 10px 0;
+        }
+
+        .payment-info strong {
+            color: #333;
+        }
+
+    .continue-button {
+        margin-top: 30px;
+        padding: 12px 25px;
+        font-size: 1.2rem;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+        .continue-button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .continue-button:focus {
+            outline: none;
+        }
+</style>
+
+<body>
+    <div class="container">
+        <div class="qr-code-container">
+            <h2>Quét Mã QR để Chuyển Khoản</h2>
+            <img src="~/Public/images/QrCode.jpg" alt="QR Code for Payment" />
+
+            <div class="payment-info">
+                <p><strong>Mã Đơn Hàng:</strong> @ViewBag.OrderId</p>
+                <p><strong>Tổng Tiền:</strong> @ViewBag.TotalAmount.ToString("N0") VND</p>
+                <p>Vui lòng quét mã QR để hoàn tất thanh toán</p>
+            </div>
+
+            <a href="@Url.Action("OrderDetail", "Site", new { id = ViewBag.OrderId })">
+                <button class="continue-button">Tiếp Tục</button>
+            </a>
+        </div>
+    </div>
+</body>

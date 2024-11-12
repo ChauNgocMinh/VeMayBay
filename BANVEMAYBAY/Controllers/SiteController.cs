@@ -112,6 +112,19 @@ namespace BanVeMayBay.Controllers
             var listPost = db.posts.Where(m => m.status == 1 && m.topid == singleC.ID).OrderByDescending(m => m.ID).ToList();
             return View("postOftoPic", listPost.ToPagedList(pageNumber, pageSize));
         }
+
+        public ActionResult CancelTicket(int id)
+        {
+            var order = db.orders.FirstOrDefault(o => o.ID == id);
+            if (order != null && order.status == 0) 
+            {
+                order.status = 2;  
+                db.SaveChanges();
+            }
+            return RedirectToAction("OrderDetail", "Site", new { id = id });
+        }
+
+
         public ActionResult topic()
         {
 
@@ -155,7 +168,7 @@ namespace BanVeMayBay.Controllers
             {
                 return HttpNotFound("Ticket not found or invalid status.");
             }
-
+            ticket.Sold = ticket.Sold + 1;
             var userId = Session["id"] as int?;
             if (!userId.HasValue)
             {
@@ -197,7 +210,7 @@ namespace BanVeMayBay.Controllers
 
             model.CusId = userId.Value;
             model.created_at = DateTime.Now;
-            model.status = 1;
+            model.status = 0;
 
             foreach (var orderDetail in model.OrderDetails)
             {
@@ -210,7 +223,9 @@ namespace BanVeMayBay.Controllers
             }
             db.orders.Add(model);
             db.SaveChanges();
-            return RedirectToAction("OrderDetail", new { id = model.ID });
+            ViewBag.OrderId = model.ID;
+            ViewBag.TotalAmount = model.total;
+            return View();
         }
 
         public ActionResult OrderDetail(int id)

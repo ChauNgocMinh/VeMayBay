@@ -193,6 +193,7 @@
     <Content Include="Public\images\payment2.png" />
     <Content Include="Public\images\payment3.png" />
     <Content Include="Public\images\payment4.png" />
+    <Content Include="Public\images\QrCode.jpg" />
     <Content Include="Public\images\Yatra-01.png" />
     <Content Include="Public\images\Yatra-white.png" />
     <Content Include="Public\font\Flaticon.eot" />
@@ -605,6 +606,7 @@
     <Content Include="Scripts\jquery-3.7.1.min.map" />
     <Content Include="Views\Site\CreateOrder.cshtml" />
     <Content Include="Views\Site\OrderDetail.cshtml" />
+    <Content Include="Views\Site\ConfirmOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
