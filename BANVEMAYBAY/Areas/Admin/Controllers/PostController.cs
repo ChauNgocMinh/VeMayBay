@@ -9,7 +9,6 @@ using System.Web;
 using System.Web.Mvc;
 using BanVeMayBay.Models;
 using BanVeMayBay.Common;
-using BanVeMayBay.Models;
 
 namespace BanVeMayBay.Areas.Admin.Controllers
 {

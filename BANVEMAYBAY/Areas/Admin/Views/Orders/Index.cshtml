@@ -55,35 +55,40 @@
                                 {
                                 <td class="text-success">Confirmed</td>
                             }
-                            else
-                            {
-                                <td class="text-danger">No Confirmed</td>
+                                @if (item.status == 0)
+                                {
+                                    <td class="text-danger">No Confirmed</td>
 
-                            }
+                                }
+                                @if (item.status == 2)
+                                { 
+                                    <td class="text-danger">Cancel</td>
+
+                                }
 
                                 </td>
-                        <td>
-                            @if (item.status == 1)
-                            {
-                                <a class="btn btn-sm btn-light text-success border a33" href="@Url.Action("Status", "Orders", new { id = item.ID })"> <i class="fas fa-toggle-on"></i> </a>
-                            }
-                            else
-                            {
-                                <a class="btn btn-sm btn-light text-danger border a33" href="@Url.Action("Status", "Orders", new { id = item.ID })"> <i class="fas fa-toggle-off"></i> </a>
-                            }
+                                <td>
+                                    @if (item.status == 1)
+                                    {
+                                        <a class="btn btn-sm btn-light text-success border a33" href="@Url.Action("Status", "Orders", new { id = item.ID })"> <i class="fas fa-toggle-on"></i> </a>
+                                    }
+                                    @if (item.status == 0)
+                                    {
+                                        <a class="btn btn-sm btn-light text-danger border a33" href="@Url.Action("Status", "Orders", new { id = item.ID })"> <i class="fas fa-toggle-off"></i> </a>
+                                    }
 
-                           
-                                @if (item.status == 2)
-                                {
-                                    <a class="btn btn-sm btn-light text-danger border"  href="@Url.Action("Deltrash", "Orders", new { id = item.ID })"> <i class="fas fa-trash-alt"></i></a>
-                                }
-                              
-                            
 
-                            <a class="btn btn-sm btn-light text-warning border" href="@Url.Action("Details", "Orders", new { id = item.ID })">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </td>
+                                    @if (item.status == 2)
+                                    {
+                                        <a class="btn btn-sm btn-light text-danger border" href="@Url.Action("Deltrash", "Orders", new { id = item.ID })"> <i class="fas fa-trash-alt"></i></a>
+                                    }
+
+
+
+                                    <a class="btn btn-sm btn-light text-warning border" href="@Url.Action("Details", "Orders", new { id = item.ID })">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </td>
 
                             </tr>
                         }

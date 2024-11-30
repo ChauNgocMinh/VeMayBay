@@ -19,7 +19,7 @@ namespace BanVeMayBay.Areas.Admin.Controllers
         public ActionResult Index()
         {
             ViewBag.list = db.OrderDetails.ToList();
-            return View(db.orders.Where(m => m.status != 0).ToList());
+            return View(db.orders.Where(m =>true).ToList());
         }
 
         // GET: Admin/Orders/Details/5
